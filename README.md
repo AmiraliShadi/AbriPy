@@ -23,7 +23,7 @@
 ```bash
 pip install abripy
 # Or for development
-git clone https://github.com/AmiraliShadi/abripy.git
+git clone https://github.com/AmiraliShadi/AbriPy.git
 cd abripy
 pip install -e .
 
