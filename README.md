@@ -91,10 +91,8 @@ AriPy Framework
 
 ## 📚 Learn More
 
- 📖 [Full Documentation](doc/README.md)
-- 🎯 [API Reference](docs/ap.md)
-- 💡 [Examples & Tutorials](examples/)
--🤝 [Contributing Guide](CONTRIBUTING.md
+- 🎯 [API Reference](docs/apa.html)
+- 💡 [Examples] (calculator_app.py)
 
 ## 🤝 Community
 
@@ -114,33 +112,4 @@ MIT License - see LICENSE](LICENSE) for details.
 
 ## 📚 **COMPREHENSIV DOCUMENTATION** (`docs/README.md`)
 
-```markdown
-# 📚 AbriPy Framework Documentatio
-
-Welcome to the complete guide for building amazing web applications with AbriPy!
-
-## 📋 Table of Contents
-
-1. 🚀 Getting Started](#getting-started)
-. [🏗️ Cor Concepts](#core-concepts)
-3. [🛣️ Routing & URL Handlin](#routing--url-handling)
-4. [📝 Request & Response](#request--respons)
-5. [🔧 Middleware](middleware)
-6. [🔌 Webockets](#websockets)
-7. [🔒 Security](#security)
-. [⚙️ Configuration](#configuration)
-9. [🎯 Advancd Topics](#advanced-topics)
-10. [🔥 Rea-World Examples](#real-world-examples)
-
----
-
-## 🚀 Gettin Started
-
-### System Requirements
-
-- **Python 3.8+** (Python 3.11+ recommended)
-- **uvicorn** for ASGI server
-- **asyncio** support
-
-### Project Structure
-
+```
