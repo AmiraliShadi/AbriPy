@@ -55,7 +55,7 @@ AriPy Framework
 
 ## 📚 Learn More
 
-- 🎯 [API Reference](docs/apa.html)
+- 🎯 [API Reference](docs/app.html)
 - 💡 [Examples] (calculator_app.py)
 
 ## 🤝 Community
