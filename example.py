@@ -1,66 +1,24 @@
-"""
-AbriPy Framework Example Application
-"""
+# app.py
+from core.application import AbriPy
+from core.config import Config
+from web.response import Response
 
-from core.application import AbriPy, Config
-from web.response import json_response, html_response
-from templating.engine import render_template
-
-# Create AbriPy app
+# Create AbriPy application
 app = AbriPy()
 
 @app.get('/')
-async def home(request):
-    """Home page"""
-    features = [
-        "Async-first architecture",
-        "Built-in security features",
-        "Type-safe development", 
-        "WebSocket support",
-        "Database ORM included",
-        "Hot reloading in development"
-    ]
-    
-    context = {
-        'title': 'AbriPy Framework',
-        'features': features,
-        'content': 'Welcome to the most exciting Python web framework!'
-    }
-    
-    return html_response(render_template('home.html', context))
+async def hello(request):  # Add request parameter
+    return "Hello, AbriPy! 🚀"
 
-@app.get('/api/health')
-async def health_check(request):
-    """Health check endpoint"""
-    return json_response({
-        'status': 'healthy',
-        'framework': 'AbriPy',
-        'version': '0.1.0'
-    })
+@app.get('/api/status')
+async def status(request):  # Add request parameter
+    return {"status": "healthy", "framework": "AbriPy"}
 
-@app.get('/users/{user_id}')
-async def get_user(request, user_id: str):
-    """Get user by ID"""
-    return json_response({
-        'user_id': user_id,
-        'name': f'User {user_id}',
-        'framework': 'AbriPy'
-    })
-
-@app.post('/api/data')
-async def create_data(request):
-    """Create new data"""
+@app.post('/api/echo')
+async def echo(request):  # This one already has it
     data = await request.json()
-    
-    # Process data here
-    response_data = {
-        'message': 'Data created successfully',
-        'received_data': data,
-        'framework': 'AbriPy'
-    }
-    
-    return json_response(response_data, status_code=201)
+    return {"echo": data}
 
-if __name__ == '__main__':
-    print("🚀 Starting AbriPy Framework Example")
-    app.run(debug=True)
+if __name__ == "__main__":
+    print("start...")
+    app.run(host="127.0.0.1", port=8000, debug=True)
