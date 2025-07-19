@@ -1,0 +1,2 @@
+[console_scripts]
+abripy = abripy.cli:main

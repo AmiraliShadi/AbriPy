@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+setup.py
+abripy.egg-info/PKG-INFO
+abripy.egg-info/SOURCES.txt
+abripy.egg-info/dependency_links.txt
+abripy.egg-info/entry_points.txt
+abripy.egg-info/requires.txt
+abripy.egg-info/top_level.txt
