@@ -3,23 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🚀 AbriPy Framework - Complete Documentation</title>
+    <title>AbriPy Framework Documentation</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #6366f1;
-            --secondary-color: #f59e0b;
-            --success-color: #10b981;
-            --danger-color: #ef4444;
-            --warning-color: #f59e0b;
-            --info-color: #3b82f6;
-            --dark-color: #1f2937;
-            --light-color: #f9fafb;
-            --text-color: #374151;
-            --border-color: #d1d5db;
-            --code-bg: #f3f4f6;
-            --gradient-bg: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -27,138 +14,56 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: var(--text-color);
-            background: var(--light-color);
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        .header {
-            background: var(--gradient-bg);
-            color: white;
-            padding: 60px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="3" fill="white" opacity="0.1"/><circle cx="40" cy="80" r="1" fill="white" opacity="0.1"/></svg>');
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .header h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            position: relative;
-            z-index: 1;
-        }
-
-        .header p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .badges {
+            padding: 0 1rem;
             display: flex;
-            justify-content: center;
-            gap: 10px;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
-        }
-
-        .badge {
-            background: rgba(255,255,255,0.2);
-            padding: 8px 16px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.3);
-        }
-
-        /* Navigation */
-        .nav {
-            background: white;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-        }
-
-        .nav-brand {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary-color);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
             gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Main Content */
-        .main {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 3rem;
-            padding: 3rem 0;
+            margin-top: 2rem;
         }
 
         .sidebar {
+            width: 280px;
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            padding: 2rem;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             height: fit-content;
             position: sticky;
-            top: 100px;
+            top: 2rem;
         }
 
         .sidebar h3 {
-            color: var(--primary-color);
+            color: #667eea;
             margin-bottom: 1rem;
             font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .sidebar ul {
@@ -170,517 +75,354 @@
         }
 
         .sidebar a {
+            color: #666;
             text-decoration: none;
-            color: var(--text-color);
-            padding: 0.5rem 0;
+            padding: 0.5rem 0.75rem;
             display: block;
-            border-left: 3px solid transparent;
-            padding-left: 1rem;
+            border-radius: 4px;
             transition: all 0.3s ease;
         }
 
-        .sidebar a:hover,
-        .sidebar a.active {
-            color: var(--primary-color);
-            border-left-color: var(--primary-color);
-            background: rgba(99, 102, 241, 0.05);
-            margin-left: -1rem;
-            padding-left: 1rem;
+        .sidebar a:hover, .sidebar a.active {
+            background: #667eea;
+            color: white;
+            transform: translateX(4px);
         }
 
-        .content {
+        .main-content {
+            flex: 1;
             background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            padding: 3rem;
-        }
-
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            color: var(--dark-color);
-            margin-bottom: 1rem;
-        }
-
-        h1 { font-size: 2.5rem; }
-        h2 { font-size: 2rem; margin-top: 3rem; }
-        h3 { font-size: 1.5rem; margin-top: 2rem; }
-        h4 { font-size: 1.25rem; margin-top: 1.5rem; }
-
-        p {
-            margin-bottom: 1rem;
-        }
-
-        /* Code blocks */
-        pre {
-            background: var(--code-bg);
-            border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 1.5rem;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #34495e;
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem 0;
+        }
+
+        h4 {
+            color: #5a6c7d;
+            font-size: 1.2rem;
+            margin: 1.5rem 0 0.75rem 0;
+        }
+
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            margin: 1rem 0;
             overflow-x: auto;
-            margin: 1.5rem 0;
-            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
         }
 
-        code {
-            background: var(--code-bg);
-            padding: 2px 6px;
+        .code-block pre {
+            margin: 0;
+            padding: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f1f8e9 100%);
+            border-left: 4px solid #667eea;
+            padding: 1rem;
+            margin: 1rem 0;
             border-radius: 4px;
-            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-            font-size: 0.9em;
         }
 
-        pre code {
-            background: none;
-            padding: 0;
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
         }
 
-        /* Feature cards */
-        .features {
+        .info-box {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 4px;
+        }
+
+        .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
             margin: 2rem 0;
         }
 
         .feature-card {
-            background: white;
-            border: 1px solid var(--border-color);
-            border-radius: 10px;
-            padding: 2rem;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-
-        .feature-card .icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        /* Alert boxes */
-        .alert {
-            padding: 1rem 1.5rem;
+            background: #f8f9fa;
+            padding: 1.5rem;
             border-radius: 8px;
-            margin: 1.5rem 0;
-            border-left: 4px solid;
+            border-left: 4px solid #667eea;
         }
 
-        .alert-info {
-            background: rgba(59, 130, 246, 0.1);
-            border-left-color: var(--info-color);
-            color: var(--info-color);
+        .feature-card h4 {
+            margin: 0 0 0.75rem 0;
+            color: #667eea;
         }
 
-        .alert-success {
-            background: rgba(16, 185, 129, 0.1);
-            border-left-color: var(--success-color);
-            color: var(--success-color);
-        }
-
-        .alert-warning {
-            background: rgba(245, 158, 11, 0.1);
-            border-left-color: var(--warning-color);
-            color: var(--warning-color);
-        }
-
-        .alert-danger {
-            background: rgba(239, 68, 68, 0.1);
-            border-left-color: var(--danger-color);
-            color: var(--danger-color);
-        }
-
-        /* Tables */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 2rem 0;
+            margin: 1rem 0;
         }
 
         th, td {
-            padding: 1rem;
+            padding: 0.75rem;
             text-align: left;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid #ddd;
         }
 
         th {
-            background: var(--code-bg);
+            background: #f8f9fa;
             font-weight: 600;
-            color: var(--dark-color);
+            color: #2c3e50;
         }
 
-        /* Buttons */
         .btn {
             display: inline-block;
-            padding: 12px 24px;
-            background: var(--primary-color);
+            background: #667eea;
             color: white;
+            padding: 0.75rem 1.5rem;
             text-decoration: none;
-            border-radius: 6px;
-            font-weight: 500;
-            transition: all 0.3s ease;
+            border-radius: 4px;
+            transition: background 0.3s ease;
             border: none;
             cursor: pointer;
         }
 
         .btn:hover {
-            background: #5856eb;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+            background: #5a67d8;
         }
 
         .btn-secondary {
-            background: var(--secondary-color);
+            background: #6c757d;
         }
 
         .btn-secondary:hover {
-            background: #d97706;
+            background: #545b62;
         }
 
-        /* Footer */
         .footer {
-            background: var(--dark-color);
+            background: #2c3e50;
             color: white;
             text-align: center;
-            padding: 3rem 0;
-            margin-top: 4rem;
+            padding: 2rem 0;
+            margin-top: 3rem;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
-            .main {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            .container {
+                flex-direction: column;
             }
-
+            
             .sidebar {
+                width: 100%;
                 position: static;
             }
-
+            
             .header h1 {
-                font-size: 2.5rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .features {
-                grid-template-columns: 1fr;
+                font-size: 2rem;
             }
         }
 
-        /* Syntax highlighting */
-        .highlight {
-            background: #f8f9fa;
+        .tab-container {
+            margin: 1rem 0;
         }
 
-        .keyword { color: #d63384; }
-        .string { color: #198754; }
-        .comment { color: #6c757d; font-style: italic; }
-        .function { color: #0d6efd; }
-
-        /* Scroll to top */
-        .scroll-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            background: var(--primary-color);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
+        .tab-buttons {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .tab-button {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
             cursor: pointer;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 1000;
+            color: #666;
+            font-size: 1rem;
+            transition: all 0.3s ease;
         }
 
-        .scroll-top.visible {
-            opacity: 1;
+        .tab-button.active {
+            color: #667eea;
+            border-bottom: 2px solid #667eea;
         }
 
-        .scroll-top:hover {
-            background: #5856eb;
-            transform: scale(1.1);
+        .tab-content {
+            padding: 1rem 0;
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
+        }
+
+        @media print {
+            .sidebar { display: none; }
+            .container { flex-direction: column; }
+            .main-content { box-shadow: none; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="header">
         <div class="container">
             <h1>🚀 AbriPy Framework</h1>
-            <p>Modern, Lightning-Fast Python Web Framework</p>
-            <div class="badges">
-                <span class="badge">🐍 Python 3.8+</span>
-                <span class="badge">⚡ ASGI Compatible</span>
-                <span class="badge">🛡️ Security First</span>
-                <span class="badge">🔌 WebSocket Ready</span>
-                <span class="badge">📱 Mobile Friendly</span>
-            </div>
+            <p>Modern, Secure & Fast Python Web Framework</p>
         </div>
     </header>
 
-    <!-- Navigation -->
-    <nav class="nav">
-        <div class="container">
-            <div class="nav-container">
-                <div class="nav-brand">AbriPy Docs</div>
-                <ul class="nav-links">
-                    <li><a href="#quick-start">Quick Start</a></li>
-                    <li><a href="#api-reference">API Reference</a></li>
-                    <li><a href="#examples">Examples</a></li>
-                    <li><a href="#deployment">Deployment</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
     <div class="container">
-        <div class="main">
-            <!-- Sidebar -->
-            <aside class="sidebar">
-                <h3>📚 Documentation</h3>
+        <nav class="sidebar">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a href="#introduction" class="nav-link">Introduction</a></li>
+                <li><a href="#installation" class="nav-link">Installation</a></li>
+                <li><a href="#quick-start" class="nav-link">Quick Start</a></li>
+                <li><a href="#core-concepts" class="nav-link">Core Concepts</a></li>
+                <li><a href="#routing" class="nav-link">Routing</a></li>
+                <li><a href="#request-response" class="nav-link">Request & Response</a></li>
+                <li><a href="#middleware" class="nav-link">Middleware</a></li>
+                <li><a href="#websockets" class="nav-link">WebSockets</a></li>
+                <li><a href="#security" class="nav-link">Security</a></li>
+                <li><a href="#configuration" class="nav-link">Configuration</a></li>
+                <li><a href="#examples" class="nav-link">Examples</a></li>
+                <li><a href="#api-reference" class="nav-link">API Reference</a></li>
+                <li><a href="#deployment" class="nav-link">Deployment</a></li>
+                <li><a href="#troubleshooting" class="nav-link">Troubleshooting</a></li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <section id="introduction" class="section">
+                <h2>Introduction</h2>
+                <p>AbriPy is a modern, secure, and fast Python web framework designed for building scalable web applications and APIs. Built on ASGI principles, it provides excellent performance while maintaining simplicity and developer experience.</p>
+                
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>⚡ Lightning Fast</h4>
+                        <p>Built on ASGI for maximum performance and async support</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔒 Security First</h4>
+                        <p>Built-in security features including CSRF, XSS protection, and secure headers</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🎯 Developer Friendly</h4>
+                        <p>Intuitive API with decorators and clean syntax</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>🔌 Extensible</h4>
+                        <p>Middleware system and plugin architecture for customization</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📡 WebSocket Support</h4>
+                        <p>Built-in WebSocket support for real-time applications</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>📊 Monitoring</h4>
+                        <p>Built-in health checks and monitoring endpoints</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="installation" class="section">
+                <h2>Installation</h2>
+                
+                <h3>Requirements</h3>
                 <ul>
-                    <li><a href="#introduction" class="active">Introduction</a></li>
-                    <li><a href="#installation">Installation</a></li>
-                    <li><a href="#quick-start">Quick Start</a></li>
-                    <li><a href="#core-concepts">Core Concepts</a></li>
-                    <li><a href="#routing">Routing</a></li>
-                    <li><a href="#request-response">Request & Response</a></li>
-                    <li><a href="#middleware">Middleware</a></li>
-                    <li><a href="#websockets">WebSockets</a></li>
-                    <li><a href="#security">Security</a></li>
-                    <li><a href="#configuration">Configuration</a></li>
-                    <li><a href="#examples">Examples</a></li>
-                    <li><a href="#api-reference">API Reference</a></li>
-                    <li><a href="#deployment">Deployment</a></li>
-                    <li><a href="#troubleshooting">Troubleshooting</a></li>
+                    <li>Python 3.8+</li>
+                    <li>uvicorn (for ASGI server)</li>
+                    <li>Optional: gunicorn (for production deployment)</li>
                 </ul>
-            </aside>
 
-            <!-- Content -->
-            <main class="content">
-                <!-- Introduction -->
-                <section id="introduction">
-                    <h1>🌟 Welcome to AbriPy Framework</h1>
-                    <p><strong>AbriPy</strong> is a modern, lightning-fast Python web framework that combines the simplicity of Flask with the performance of FastAPI. Built from the ground up with security, performance, and developer experience in mind.</p>
+                <h3>Install via pip</h3>
+                <div class="code-block">
+                    <pre><code class="language-bash">pip install abripy</code></pre>
+                </div>
 
-                    <div class="alert alert-success">
-                        <strong>🎉 Congratulations!</strong> You've chosen a framework that prioritizes both developer productivity and application performance.
-                    </div>
-
-                    <h2>✨ Why Choose AbriPy?</h2>
-                    <div class="features">
-                        <div class="feature-card">
-                            <div class="icon">⚡</div>
-                            <h3>Lightning Fast</h3>
-                            <p>Built on ASGI for async performance that rivals the fastest Python frameworks.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="icon">🛡️</div>
-                            <h3>Security First</h3>
-                            <p>Built-in CSRF protection, security headers, and input validation out of the box.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="icon">🎨</div>
-                            <h3>Developer Friendly</h3>
-                            <p>Intuitive decorators, clean syntax, and excellent error messages.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="icon">🔌</div>
-                            <h3>WebSocket Ready</h3>
-                            <p>Real-time applications made simple with built-in WebSocket support.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="icon">🔧</div>
-                            <h3>Extensible</h3>
-                            <p>Powerful middleware system and plugin architecture for customization.</p>
-                        </div>
-                        <div class="feature-card">
-                            <div class="icon">📊</div>
-                            <h3>Type Safe</h3>
-                            <p>Full type hint support for better IDE integration and fewer bugs.</p>
-                        </div>
-                    </div>
-
-                    <h2>🏆 Framework Comparison</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Feature</th>
-                                <th>Flask</th>
-                                <th>FastAPI</th>
-                                <th><strong>AbriPy</strong></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Async Support</td>
-                                <td>❌</td>
-                                <td>✅</td>
-                                <td><strong>✅</strong></td>
-                            </tr>
-                            <tr>
-                                <td>Type Hints</td>
-                                <td>❌</td>
-                                <td>✅</td>
-                                <td><strong>✅</strong></td>
-                            </tr>
-                            <tr>
-                                <td>Built-in Security</td>
-                                <td>❌</td>
-                                <td>❌</td>
-                                <td><strong>✅</strong></td>
-                            </tr>
-                            <tr>
-                                <td>WebSocket Support</td>
-                                <td>Plugin Required</td>
-                                <td>✅</td>
-                                <td><strong>✅</strong></td>
-                            </tr>
-                            <tr>
-                                <td>Learning Curve</td>
-                                <td>Easy</td>
-                                <td>Medium</td>
-                                <td><strong>Easy</strong></td>
-                            </tr>
-                            <tr>
-                                <td>Performance</td>
-                                <td>Good</td>
-                                <td>Excellent</td>
-                                <td><strong>Excellent</strong></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-
-                <!-- Installation -->
-                <section id="installation">
-                    <h1>📦 Installation</h1>
-                    
-                    <h2>System Requirements</h2>
-                    <ul>
-                        <li><strong>Python 3.8+</strong> (Python 3.11+ recommended for best performance)</li>
-                        <li><strong>uvicorn</strong> - ASGI server</li>
-                        <li><strong>asyncio</strong> support</li>
-                    </ul>
-
-                    <h2>Install from PyPI</h2>
-                    <pre><code># Install AbriPy (when available on PyPI)
-pip install abripy
-
-# Or install with all optional dependencies
-pip install abripy[full]</code></pre>
-
-                    <h2>Development Installation</h2>
-                    <pre><code># Clone the repository
+                <h3>Development Installation</h3>
+                <div class="code-block">
+                    <pre><code class="language-bash"># Clone the repository
 git clone https://github.com/yourusername/abripy.git
 cd abripy
 
 # Install in development mode
-pip install -e .
+pip install -e .</code></pre>
+                </div>
+            </section>
 
-# Install development dependencies
-pip install -r requirements-dev.txt</code></pre>
+            <section id="quick-start" class="section">
+                <h2>Quick Start</h2>
+                
+                <p>Create your first AbriPy application in just a few lines of code:</p>
+                
+                <div class="code-block">
+                    <pre><code class="language-python"># app.py
+from core.application import AbriPy
 
-                    <h2>Verify Installation</h2>
-                    <pre><code>python -c "from core import AbriPy; print('AbriPy installed successfully! 🚀')"</code></pre>
-
-                    <div class="alert alert-info">
-                        <strong>💡 Pro Tip:</strong> Use a virtual environment to keep your dependencies isolated and avoid conflicts.
-                    </div>
-                </section>
-
-                <!-- Quick Start -->
-                <section id="quick-start">
-                    <h1 id="quick-start">🚀 Quick Start Guide</h1>
-                    
-                    <p>Get your first AbriPy application running in under 5 minutes!</p>
-
-                    <h2>🎯 Your First App</h2>
-                    <pre><code># app.py
-from core import AbriPy
-
-# Create AbriPy application
 app = AbriPy()
 
 @app.get('/')
-async def hello():
+async def hello(request):
     return "Hello, AbriPy! 🚀"
 
-@app.get('/api/status')
-async def status():
-    return {"status": "healthy", "framework": "AbriPy"}
+@app.get('/api/users/{user_id}')
+async def get_user(request):
+    user_id = request.path_params['user_id']
+    return {"user_id": user_id, "name": "John Doe"}
 
-@app.post('/api/echo')
-async def echo(request):
+@app.post('/api/users')
+async def create_user(request):
     data = await request.json()
-    return {"echo": data}
+    return {"message": "User created", "data": data}
 
 if __name__ == "__main__":
-    app.run(debug=True)</code></pre>
+    app.run(host="127.0.0.1", port=8000, debug=True)</code></pre>
+                </div>
 
-                    <h2>🏃‍♂️ Run Your App</h2>
-                    <pre><code>python app.py</code></pre>
+                <h3>Run Your Application</h3>
+                <div class="code-block">
+                    <pre><code class="language-bash">python app.py</code></pre>
+                </div>
 
-                    <p>Visit <code>http://localhost:8000</code> to see your app in action! 🎉</p>
+                <div class="info-box">
+                    <strong>📝 Important:</strong> All route handlers must accept a <code>request</code> parameter as their first argument, even if they don't use it.
+                </div>
+            </section>
 
-                    <div class="alert alert-success">
-                        <strong>🎉 Success!</strong> You now have a running AbriPy application with hot reload enabled.
-                    </div>
+            <section id="core-concepts" class="section">
+                <h2>Core Concepts</h2>
 
-                    <h2>🧪 Test Your Endpoints</h2>
-                    <pre><code># Test GET endpoint
-curl http://localhost:8000/
-
-# Test JSON API
-curl http://localhost:8000/api/status
-
-# Test POST endpoint
-curl -X POST http://localhost:8000/api/echo \
-     -H "Content-Type: application/json" \
-     -d '{"message": "Hello AbriPy!"}'</code></pre>
-
-                    <h2>📁 Project Structure</h2>
-                    <pre><code>my-abripy-app/
-├── app.py              # Your main application
-├── core/               # AbriPy framework core
-│   ├── __init__.py
-│   ├── application.py
-│   ├── routing.py
-│   ├── config.py
-│   └── middleware.py
-├── web/                # Web components
-│   ├── request.py
-│   ├── response.py
-│   └── websockets.py
-├── static/             # Static files (CSS, JS, images)
-├── templates/          # HTML templates
-└── requirements.txt    # Dependencies</code></pre>
-                </section>
-
-                <!-- Core Concepts -->
-                <section id="core-concepts">
-                    <h1>🏗️ Core Concepts</h1>
-
-                    <h2>The AbriPy Application</h2>
-                    <p>The <code>AbriPy</code> class is the heart of your application. It handles routing, middleware, configuration, and serves as the ASGI interface.</p>
-
-                    <pre><code>from core import AbriPy, Config
+                <h3>Application Instance</h3>
+                <p>The AbriPy application instance is the central component of your web application:</p>
+                
+                <div class="code-block">
+                    <pre><code class="language-python">from core.application import AbriPy
+from core.config import Config
 
 # Basic application
 app = AbriPy()
@@ -688,2653 +430,1317 @@ app = AbriPy()
 # Application with custom configuration
 config = Config()
 config.server.host = "0.0.0.0"
-config.server.port = 8000
-config.server.debug = True
+config.server.port = 8080
+app = AbriPy(config=config)</code></pre>
+                </div>
 
-app = AbriPy(config)</code></pre>
+                <h3>Route Handlers</h3>
+                <p>Route handlers are async functions that process HTTP requests:</p>
+                
+                <div class="code-block">
+                    <pre><code class="language-python">@app.get('/users')
+async def list_users(request):
+    # Handler logic here
+    return {"users": []}
 
-                    <h2>🛣️ Route Decorators</h2>
-                    <p>AbriPy provides intuitive decorators for handling different HTTP methods:</p>
-
-                    <pre><code># HTTP method decorators
-@app.get('/users')           # GET request
-@app.post('/users')          # POST request
-@app.put('/users/{id}')      # PUT request
-@app.delete('/users/{id}')   # DELETE request
-
-# Multiple methods
-@app.route('/api/resource', methods=['GET', 'POST', 'PUT'])
-async def handle_resource(request):
-    if request.method == 'GET':
-        return {"action": "read"}
-    elif request.method == 'POST':
-        return {"action": "create"}
-    elif request.method == 'PUT':
-        return {"action": "update"}</code></pre>
-
-                    <h2>⚡ Async/Await Support</h2>
-                    <p>AbriPy is built for modern async Python. All route handlers should be async functions:</p>
-
-                    <pre><code>@app.get('/async-example')
-async def async_handler():
-    # Simulate async operation
-    await asyncio.sleep(0.1)
-    return {"message": "Async response"}
-
-@app.post('/database-save')
-async def save_data(request):
+@app.post('/users')
+async def create_user(request):
     data = await request.json()
-    # Async database operation
-    result = await database.save(data)
-    return {"id": result.id, "status": "saved"}</code></pre>
+    # Create user logic
+    return {"id": 1, "name": data["name"]}</code></pre>
+                </div>
 
-                    <h2>🔧 Application Lifecycle</h2>
-                    <pre><code># Application hooks
-@app.before_request
-async def before_request(request):
-    request.start_time = time.time()
-    print(f"Processing: {request.url}")
+                <h3>Middleware</h3>
+                <p>Middleware provides a way to process requests and responses:</p>
+                
+                <div class="code-block">
+                    <pre><code class="language-python">class LoggingMiddleware:
+    def __init__(self, app):
+        self.app = app
+    
+    async def __call__(self, scope, receive, send):
+        print(f"Request: {scope['method']} {scope['path']}")
+        await self.app(scope, receive, send)
 
-@app.after_request
-async def after_request(request, response):
-    duration = time.time() - request.start_time
-    print(f"Completed in {duration:.4f}s")
-    return response</code></pre>
+app.middleware(LoggingMiddleware)</code></pre>
+                </div>
+            </section>
 
-                    <div class="alert alert-info">
-                        <strong>💡 Remember:</strong> AbriPy is ASGI-compatible, which means it can be deployed with any ASGI server like Uvicorn, Hypercorn, or Daphne.
-                    </div>
-                </section>
+            <section id="routing" class="section">
+                <h2>Routing</h2>
+                
+                <h3>Basic Routing</h3>
+                <div class="code-block">
+                    <pre><code class="language-python">@app.get('/')
+async def home(request):
+    return "Welcome to AbriPy!"
 
-                <!-- Routing -->
-                <section id="routing">
-                    <h1>🛣️ Advanced Routing</h1>
+@app.post('/api/data')
+async def handle_data(request):
+    data = await request.json()
+    return {"received": data}
 
-                    <h2>📍 URL Parameters</h2>
-                    <pre><code># Path parameters
-@app.get('/users/{user_id}')
-async def get_user(request):
-                        user_id = request.path_params['user_id']
-    return {"user_id": user_id, "name": f"User {user_id}"}
-
-# Multiple parameters
-@app.get('/users/{user_id}/posts/{post_id}')
-async def get_user_post(request):
+@app.put('/api/users/{user_id}')
+async def update_user(request):
     user_id = request.path_params['user_id']
-    post_id = request.path_params['post_id']
-    return {
-        "user_id": user_id, 
-        "post_id": post_id,
-        "content": f"Post {post_id} by User {user_id}"
-    }</code></pre>
+    data = await request.json()
+    return {"user_id": user_id, "updated": data}
 
-                    <h2>🔍 Query Parameters</h2>
-                    <pre><code>@app.get('/search')
+@app.delete('/api/users/{user_id}')
+async def delete_user(request):
+    user_id = request.path_params['user_id']
+    return {"message": f"User {user_id} deleted"}</code></pre>
+                </div>
+
+                <h3>Path Parameters</h3>
+                <div class="code-block">
+                    <pre><code class="language-python">@app.get('/users/{user_id}')
+async def get_user(request):
+    user_id = request.path_params['user_id']
+    return {"user_id": user_id}
+
+@app.get('/posts/{post_id}/comments/{comment_id}')
+async def get_comment(request):
+    post_id = request.path_params['post_id']
+    comment_id = request.path_params['comment_id']
+    return {
+        "post_id": post_id, 
+        "comment_id": comment_id
+    }</code></pre>
+                </div>
+
+                <h3>Query Parameters</h3>
+                <div class="code-block">
+                    <pre><code class="language-python">@app.get('/search')
 async def search(request):
-    # Get query parameters with defaults
     query = request.query_params.get('q', '')
+    page = int(request.query_params.get('page', 1))
     limit = int(request.query_params.get('limit', 10))
-    offset = int(request.query_params.get('offset', 0))
     
     return {
         "query": query,
+        "page": page,
         "limit": limit,
-        "offset": offset,
-        "results": []  # Your search results here
-    }
+        "results": []
+    }</code></pre>
+                </div>
 
-# Example: /search?q=python&limit=20&offset=40</code></pre>
+                <h3>Multiple HTTP Methods</h3>
+                <div class="code-block">
+                    <pre><code class="language-python">@app.route('/api/resource', methods=['GET', 'POST', 'PUT'])
+async def handle_resource(request):
+    if request.method == 'GET':
+        return {"action": "get"}
+    elif request.method == 'POST':
+        data = await request.json()
+        return {"action": "create", "data": data}
+    elif request.method == 'PUT':
+        data = await request.json()
+        return {"action": "update", "data": data}</code></pre>
+                </div>
+            </section>
 
-                    <h2>🌟 Wildcard Routes</h2>
-                    <pre><code># Catch-all route for file serving
-@app.get('/static/{filepath:path}')
-async def serve_static(request):
-    filepath = request.path_params['filepath']
-    # Serve file from static directory
-    return f"Serving: {filepath}"
+            <section id="request-response" class="section">
+                <h2>Request & Response</h2>
 
-# API versioning
-@app.get('/api/{version}/users')
-async def versioned_api(request):
-    version = request.path_params['version']
-    if version == 'v1':
-        return {"version": "v1", "users": []}
-    elif version == 'v2':
-        return {"version": "v2", "users": [], "metadata": {}}
-    else:
-        return {"error": "Unsupported API version"}</code></pre>
+                <h3>Request Object</h3>
+                <div class="code-block">
+                    <pre><code class="language-python">@app.post('/upload')
+async def upload_file(request):
+    # Access request method
+    method = request.method
+    
+    # Access headers
+    content_type = request.headers.get('content-type')
+    
+    # Access JSON data
+    if content_type == 'application/json':
+        data = await request.json()
+    
+    # Access form data
+    elif content_type.startswith('multipart/form-data'):
+        form = await request.form()
+        file = form.get('file')
+    
+    # Access raw body
+    body = await request.body()
+    
+    return {"received": len(body), "method": method}</code></pre>
+                </div>
 
-                    <h2>🎯 Route Groups & Prefixes</h2>
-                    <pre><code># Organize routes with common prefixes
-@app.get('/api/v1/users')
-async def list_users():
-    return {"users": []}
+                <h3>Response Types</h3>
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <button class="tab-button active" onclick="showTab('json-response')">JSON Response</button>
+                        <button class="tab-button" onclick="showTab('html-response')">HTML Response</button>
+                        <button class="tab-button" onclick="showTab('file-response')">File Response</button>
+                        <button class="tab-button" onclick="showTab('redirect-response')">Redirect</button>
+                    </div>
+                    
+                    <div id="json-response" class="tab-pane active">
+                        <div class="code-block">
+                            <pre><code class="language-python">from web.response import Response
 
-@app.get('/api/v1/users/{id}')
-async def get_user(request):
-    return {"user": {"id": request.path_params['id']}}
+@app.get('/api/data')
+async def get_data(request):
+    # Simple JSON response
+    return {"message": "Hello", "status": "success"}
 
-@app.post('/api/v1/users')
+@app.get('/api/users')
+async def get_users(request):
+    # Using Response.json() method
+    data = {"users": ["Alice", "Bob"], "count": 2}
+    return Response.json(data, status_code=200)</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div id="html-response" class="tab-pane">
+                        <div class="code-block">
+                            <pre><code class="language-python">@app.get('/page')
+async def serve_page(request):
+    html_content = """
+    &lt;html&gt;
+        &lt;head&gt;&lt;title&gt;AbriPy Page&lt;/title&gt;&lt;/head&gt;
+        &lt;body&gt;
+            &lt;h1&gt;Welcome to AbriPy!&lt;/h1&gt;
+            &lt;p&gt;This is a sample HTML page.&lt;/p&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;
+    """
+    return Response.html(html_content)</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div id="file-response" class="tab-pane">
+                        <div class="code-block">
+                            <pre><code class="language-python">@app.get('/download/{filename}')
+async def download_file(request):
+    filename = request.path_params['filename']
+    return Response.file(f"files/{filename}")</code></pre>
+                        </div>
+                    </div>
+                    
+                    <div id="redirect-response" class="tab-pane">
+                        <div class="code-block">
+                            <pre><code class="language-python">@app.get('/old-page')
+async def redirect_page(request):
+    return Response.redirect('/new-page')
+
+@app.get('/login')
+async def login_redirect(request):
+    return Response.redirect('https://auth.example.com/login', status_code=302)</code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Custom Headers and Status Codes</h3>
+                <div class="code-block">
+                    <pre><code class="language-python">@app.post('/api/users')
 async def create_user(request):
     data = await request.json()
-    return {"user": data, "id": "new-id"}
-
-# Admin routes
-@app.get('/admin/dashboard')
-async def admin_dashboard():
-    return {"dashboard": "admin"}
-
-@app.get('/admin/users')
-async def admin_users():
-    return {"admin_users": []}</code></pre>
-
-                    <div class="alert alert-warning">
-                        <strong>⚠️ Route Order Matters:</strong> More specific routes should be defined before more general ones to ensure proper matching.
-                    </div>
-                </section>
-
-                <!-- Request & Response -->
-                <section id="request-response">
-                    <h1>📝 Request & Response Handling</h1>
-
-                    <h2>📥 Request Object</h2>
-                    <pre><code>@app.post('/api/comprehensive')
-async def handle_request(request):
-    # Request metadata
-    method = request.method          # 'POST'
-    url = str(request.url)          # Full URL
-    headers = dict(request.headers) # Headers dictionary
-    client_ip = request.client.host # Client IP address
     
-    # Request data
-    json_data = await request.json()     # JSON body
-    form_data = await request.form()     # Form data
-    raw_body = await request.body()      # Raw bytes
-    
-    # URL components
-    path_params = request.path_params    # URL parameters
-    query_params = request.query_params  # Query string
-    
-    return {
-        "method": method,
-        "url": url,
-        "headers": headers,
-        "data": json_data,
-        "query": dict(query_params)
-    }</code></pre>
-
-                    <h2>📤 Response Types</h2>
-
-                    <h3>Simple Responses</h3>
-                    <pre><code># String response
-@app.get('/text')
-async def text_response():
-    return "Plain text response"
-
-# JSON response (automatic)
-@app.get('/json')
-async def json_response():
-    return {
-        "message": "JSON response", 
-        "status": "success",
-        "data": {"key": "value"}
-    }</code></pre>
-
-                    <h3>Custom Response Objects</h3>
-                    <pre><code>from web.response import Response
-
-# Custom status codes
-@app.get('/custom-status')
-async def custom_status():
-    return Response(
-        content="Created successfully",
+    # Custom headers and status code
+    response = Response.json(
+        {"id": 123, "name": data["name"]},
         status_code=201,
-        headers={"X-Custom": "header"}
+        headers={
+            "X-Custom-Header": "AbriPy",
+            "X-User-Created": "true"
+        }
     )
+    return response</code></pre>
+                </div>
+            </section>
 
-# JSON with custom status
-@app.get('/api/error')
-async def error_response():
-    return Response.json(
-        {"error": "Something went wrong", "code": "E001"}, 
-        status_code=400
-    )
+            <section id="middleware" class="section">
+                <h2>Middleware</h2>
+                
+                <p>Middleware allows you to process requests and responses in a pipeline pattern.</p>
 
-# File downloads
-@app.get('/download')
-async def download_file():
-    return Response.file(
-        "path/to/file.pdf",
-        filename="document.pdf"
-    )
-
-# Redirects
-@app.get('/redirect')
-async def redirect():
-    return Response.redirect("https://example.com")</code></pre>
-
-                    <h3>Streaming Responses</h3>
-                    <pre><code>@app.get('/stream')
-async def stream_response():
-    async def generate():
-        for i in range(100):
-            yield f"data chunk {i}\n"
-            await asyncio.sleep(0.1)
+                <h3>Creating Middleware</h3>
+                <div class="code-block">
+                    <pre><code class="language-python">class TimingMiddleware:
+    def __init__(self, app):
+        self.app = app
     
-    return Response.stream(generate(), media_type="text/plain")</code></pre>
-
-                    <h2>🍪 Cookies & Sessions</h2>
-                    <pre><code>@app.get('/set-cookie')
-async def set_cookie():
-    response = Response.json({"message": "Cookie set"})
-    response.set_cookie(
-        key="user_id",
-        value="12345",
-        max_age=3600,  # 1 hour
-        httponly=True,
-        secure=True
-    )
-    return response
-
-@app.get('/get-cookie')
-async def get_cookie(request):
-    user_id = request.cookies.get('user_id')
-    return {"user_id": user_id}</code></pre>
-
-                    <h2>📎 File Uploads</h2>
-                    <pre><code>@app.post('/upload')
-async def upload_file(request):
-    form = await request.form()
-    uploaded_file = form["file"]
-    
-    # Save the file
-    content = await uploaded_file.read()
-    filename = uploaded_file.filename
-    
-    # Process file...
-    with open(f"uploads/{filename}", "wb") as f:
-        f.write(content)
-    
-    return {
-        "filename": filename,
-        "size": len(content),
-        "status": "uploaded"
-    }</code></pre>
-
-                    <div class="alert alert-info">
-                        <strong>💡 Pro Tip:</strong> Always validate and sanitize file uploads in production applications. Consider file size limits, allowed file types, and secure storage locations.
-                    </div>
-                </section>
-
-                <!-- Middleware -->
-                <section id="middleware">
-                    <h1>🔧 Middleware System</h1>
-
-                    <p>Middleware allows you to process requests and responses globally across your application.</p>
-
-                    <h2>Creating Custom Middleware</h2>
-                    <pre><code>import time
-
-class TimingMiddleware:
-    """Middleware to track request processing time"""
-    
-    async def __call__(self, request, call_next):
+    async def __call__(self, scope, receive, send):
+        import time
         start_time = time.time()
         
-        # Before request processing
-        print(f"⏱️  Processing: {request.method} {request.url}")
+        await self.app(scope, receive, send)
         
-        # Process the request
-        response = await call_next(request)
-        
-        # After request processing
         process_time = time.time() - start_time
-        print(f"✅ Completed: {response.status_code} ({process_time:.4f}s)")
-        
-        # Add timing header
-        response.headers["X-Process-Time"] = str(process_time)
-        
-        return response
+        print(f"Request processed in {process_time:.4f} seconds")
 
-# Add middleware to app
+# Apply middleware
 app.middleware(TimingMiddleware)</code></pre>
+                </div>
 
-                    <h2>🔐 Authentication Middleware</h2>
-                    <pre><code>class AuthMiddleware:
-    """Simple token-based authentication middleware"""
+                <h3>Authentication Middleware</h3>
+                <div class="code-block">
+                    <pre><code class="language-python">class AuthMiddleware:
+    def __init__(self, app):
+        self.app = app
     
-    def __init__(self, excluded_paths=None):
-        self.excluded_paths = excluded_paths or ['/login', '/register', '/']
-    
-    async def __call__(self, request, call_next):
-        # Skip auth for excluded paths
-        if request.url.path in self.excluded_paths:
-            return await call_next(request)
+    async def __call__(self, scope, receive, send):
+        # Skip auth for public endpoints
+        if scope["path"].startswith("/public"):
+            await self.app(scope, receive, send)
+            return
         
-        # Check for authorization header
-        auth_header = request.headers.get('Authorization')
-        if not auth_header or not auth_header.startswith('Bearer '):
-            return Response.json(
-                {"error": "Authorization required"}, 
-                status_code=401
-            )
+        headers = dict(scope.get("headers", []))
+        auth_header = headers.get(b"authorization")
         
-        # Validate token (implement your logic)
-        token = auth_header[7:]  # Remove 'Bearer '
-        if not self.validate_token(token):
-            return Response.json(
-                {"error": "Invalid token"}, 
-                status_code=401
-            )
+        if not auth_header or not self.validate_token(auth_header.decode()):
+            response = Response("Unauthorized", status_code=401)
+            await response(scope, receive, send)
+            return
         
-        # Add user info to request
-        request.user = self.get_user_from_token(token)
-        
-        return await call_next(request)
+        await self.app(scope, receive, send)
     
     def validate_token(self, token):
-        # Your token validation logic
-        return token == "valid-token-123"
-    
-    def get_user_from_token(self, token):
-        # Your user retrieval logic
-        return {"id": 1, "username": "user"}
+        # Token validation logic
+        return token.startswith("Bearer ")
 
-# Add auth middleware
-app.middleware(AuthMiddleware(excluded_paths=['/login', '/health']))</code></pre>
+app.middleware(AuthMiddleware)</code></pre>
+                </div>
 
-                    <h2>🌐 CORS Middleware</h2>
-                    <pre><code>class CORSMiddleware:
-    """Cross-Origin Resource Sharing middleware"""
+                <h3>CORS Middleware</h3>
+                <div class="code-block">
+                    <pre><code class="language-python">class CORSMiddleware:
+    def __init__(self, app, allow_origins=["*"], allow_methods=["*"]):
+        self.app = app
+        self.allow_origins = allow_origins
+        self.allow_methods = allow_methods
     
-    def __init__(self, allow_origins=None, allow_methods=None, allow_headers=None):
-        self.allow_origins = allow_origins or ["*"]
-        self.allow_methods = allow_methods or ["GET", "POST", "PUT", "DELETE"]
-        self.allow_headers = allow_headers or ["*"]
-    
-    async def __call__(self, request, call_next):
+    async def __call__(self, scope, receive, send):
+        if scope["type"] != "http":
+            await self.app(scope, receive, send)
+            return
+        
         # Handle preflight requests
-        if request.method == "OPTIONS":
-            response = Response("", status_code=200)
-        else:
-            response = await call_next(request)
+        if scope["method"] == "OPTIONS":
+            response = Response("OK", headers={
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Methods": ", ".join(self.allow_methods),
+                "Access-Control-Allow-Headers": "Content-Type, Authorization",
+            })
+            await response(scope, receive, send)
+            return
         
-        # Add CORS headers
-        response.headers["Access-Control-Allow-Origin"] = ", ".join(self.allow_origins)
-        response.headers["Access-Control-Allow-Methods"] = ", ".join(self.allow_methods)
-        response.headers["Access-Control-Allow-Headers"] = ", ".join(self.allow_headers)
-        
-        return response
+        await self.app(scope, receive, send)
 
-# Add CORS middleware
-app.middleware(CORSMiddleware(
-    allow_origins=["http://localhost:3000", "https://yourdomain.com"],
-    allow_methods=["GET", "POST", "PUT", "DELETE"],
-    allow_headers=["Content-Type", "Authorization"]
-))</code></pre>
+app.middleware(CORSMiddleware)</code></pre>
+                </div>
+            </section>
 
-                    <h2>🚫 Rate Limiting Middleware</h2>
-                    <pre><code>import time
-from collections import defaultdict
-
-class RateLimitMiddleware:
-    """Simple rate limiting middleware"""
-    
-    def __init__(self, requests_per_minute=60):
-        self.requests_per_minute = requests_per_minute
-        self.requests = defaultdict(list)
-    
-    async def __call__(self, request, call_next):
-        client_ip = request.client.host
-        now = time.time()
-        
-        # Clean old requests
-        self.requests[client_ip] = [
-            req_time for req_time in self.requests[client_ip]
-            if now - req_time < 60  # Keep requests from last minute
-        ]
-        
-        # Check rate limit
-        if len(self.requests[client_ip]) >= self.requests_per_minute:
-            return Response.json(
-                {"error": "Rate limit exceeded"}, 
-                status_code=429
-            )
-        
-        # Add current request
-        self.requests[client_ip].append(now)
-        
-        return await call_next(request)
-
-# Add rate limiting
-app.middleware(RateLimitMiddleware(requests_per_minute=100))</code></pre>
-
-                    <h2>🔄 Middleware Order</h2>
-                    <p>Middleware is processed in the order it's added. The first middleware added will be the outermost layer:</p>
-
-                    <pre><code># Middleware processing order:
-app.middleware(CORSMiddleware)      # 1st: Outer layer
-app.middleware(RateLimitMiddleware) # 2nd: Middle layer  
-app.middleware(AuthMiddleware)      # 3rd: Inner layer
-app.middleware(TimingMiddleware)    # 4th: Innermost layer
-
-# Request flow: CORS → RateLimit → Auth → Timing → Route Handler
-# Response flow: Route Handler → Timing → Auth → RateLimit → CORS</code></pre>
-
-                    <div class="alert alert-warning">
-                        <strong>⚠️ Order Matters:</strong> CORS middleware should typically be first, followed by rate limiting, then authentication. Timing middleware is often last to measure the full request cycle.
-                    </div>
-                </section>
-
-                <!-- WebSockets -->
-                <section id="websockets">
-                    <h1>🔌 WebSocket Support</h1>
-
-                    <p>AbriPy provides built-in WebSocket support for real-time applications.</p>
-
-                    <h2>Basic WebSocket Handler</h2>
-                    <pre><code>@app.websocket('/ws')
+            <section id="websockets" class="section">
+                <h2>WebSockets</h2>
+                
+                <h3>Basic WebSocket Handler</h3>
+                <div class="code-block">
+                    <pre><code class="language-python">@app.websocket('/ws')
 async def websocket_endpoint(websocket):
     await websocket.accept()
     
     try:
         while True:
             # Receive message from client
-            data = await websocket.receive_text()
-            print(f"Received: {data}")
+            message = await websocket.receive_text()
             
-            # Echo back to client
-            await websocket.send_text(f"Echo: {data}")
-            
+            # Echo message back to client
+            await websocket.send_text(f"Echo: {message}")
     except Exception as e:
         print(f"WebSocket error: {e}")
     finally:
         await websocket.close()</code></pre>
+                </div>
 
-                    <h2>🎮 Real-time Chat Application</h2>
-                    <pre><code>import json
-from typing import Set
+                <h3>WebSocket Chat Room</h3>
+                <div class="code-block">
+                    <pre><code class="language-python">class ConnectionManager:
+    def __init__(self):
+        self.active_connections = []
+    
+    async def connect(self, websocket):
+        await websocket.accept()
+        self.active_connections.append(websocket)
+    
+    def disconnect(self, websocket):
+        self.active_connections.remove(websocket)
+    
+    async def broadcast(self, message):
+        for connection in self.active_connections:
+            try:
+                await connection.send_text(message)
+            except:
+                self.disconnect(connection)
 
-# Store active connections
-active_connections: Set[object] = set()
+manager = ConnectionManager()
 
-@app.websocket('/ws/chat')
-async def chat_websocket(websocket):
-    await websocket.accept()
-    active_connections.add(websocket)
+@app.websocket('/chat')
+async def chat_endpoint(websocket):
+    await manager.connect(websocket)
     
     try:
-        # Send welcome message
-        await websocket.send_text(json.dumps({
-            "type": "system",
-            "message": "Welcome to the chat!"
-        }))
-        
-        # Broadcast user joined
-        await broadcast_message({
-            "type": "user_joined",
-            "message": "A user joined the chat"
-        }, exclude=websocket)
-        
         while True:
-            # Receive message
-            data = await websocket.receive_text()
-            message = json.loads(data)
-            
-            # Broadcast to all connected clients
-            await broadcast_message({
-                "type": "chat",
-                "username": message.get("username", "Anonymous"),
-                "message": message.get("message", "")
-            })
-            
+            message = await websocket.receive_text()
+            await manager.broadcast(message)
     except Exception as e:
-        print(f"Chat error: {e}")
-    finally:
-        active_connections.discard(websocket)
-        await broadcast_message({
-            "type": "user_left",
-            "message": "A user left the chat"
-        })
+        manager.disconnect(websocket)</code></pre>
+                </div>
+            </section>
 
-async def broadcast_message(message: dict, exclude=None):
-    """Broadcast message to all connected clients"""
-    if not active_connections:
-        return
-    
-    message_str = json.dumps(message)
-    disconnected = set()
-    
-    for connection in active_connections:
-        if connection == exclude:
-            continue
-            
-        try:
-            await connection.send_text(message_str)
-        except:
-            # Connection is closed, mark for removal
-            disconnected.add(connection)
-    
-    # Remove disconnected clients
-    active_connections -= disconnected</code></pre>
+            <section id="security" class="section">
+                <h2>Security</h2>
+                
+                <h3>CSRF Protection</h3>
+                <div class="code-block">
+                    <pre><code class="language-python">from core.security import csrf_protect
 
-                    <h2>📊 Real-time Dashboard</h2>
-                    <pre><code>import asyncio
-import random
-
-dashboard_connections: Set[object] = set()
-
-@app.websocket('/ws/dashboard')
-async def dashboard_websocket(websocket):
-    await websocket.accept()
-    dashboard_connections.add(websocket)
-    
-    try:
-        # Send initial data
-        await websocket.send_text(json.dumps({
-            "type": "initial_data",
-            "metrics": get_current_metrics()
-        }))
-        
-        # Keep connection alive and wait for client messages
-        while True:
-            await websocket.receive_text()
-            
-    except Exception as e:
-        print(f"Dashboard error: {e}")
-    finally:
-        dashboard_connections.discard(websocket)
-
-async def send_metrics_updates():
-    """Background task to send periodic metric updates"""
-    while True:
-        if dashboard_connections:
-            metrics = get_current_metrics()
-            message = json.dumps({
-                "type": "metrics_update",
-                "metrics": metrics
-            })
-            
-            disconnected = set()
-            for connection in dashboard_connections:
-                try:
-                    await connection.send_text(message)
-                except:
-                    disconnected.add(connection)
-            
-            dashboard_connections -= disconnected
-        
-        await asyncio.sleep(5)  # Update every 5 seconds
-
-def get_current_metrics():
-    """Get current application metrics"""
-    return {
-        "active_users": len(active_connections),
-        "cpu_usage": random.randint(10, 90),
-        "memory_usage": random.randint(30, 80),
-        "requests_per_second": random.randint(50, 200)
-    }
-
-# Start background task when app starts
-@app.before_request
-async def startup():
-    asyncio.create_task(send_metrics_updates())</code></pre>
-
-                    <h2>🎯 WebSocket with Authentication</h2>
-                    <pre><code>@app.websocket('/ws/secure')
-async def secure_websocket(websocket):
-    # Get token from query parameters
-    token = websocket.query_params.get('token')
-    
-    if not validate_websocket_token(token):
-        await websocket.close(code=1008, reason="Invalid token")
-        return
-    
-    await websocket.accept()
-    
-    # Get user from token
-    user = get_user_from_token(token)
-    
-    try:
-        await websocket.send_text(json.dumps({
-            "type": "authenticated",
-            "user": user
-        }))
-        
-        while True:
-            data = await websocket.receive_text()
-            # Process authenticated user messages
-            await process_user_message(user, data)
-            
-    except Exception as e:
-        print(f"Secure WebSocket error: {e}")
-    finally:
-        await websocket.close()
-
-def validate_websocket_token(token):
-    # Your token validation logic
-    return token and token.startswith("ws_token_")
-
-def get_user_from_token(token):
-    # Your user retrieval logic
-    return {"id": 1, "username": "authenticated_user"}</code></pre>
-
-                    <h2>🌐 WebSocket Client Example</h2>
-                    <pre><code>&lt;!-- HTML WebSocket client example --&gt;
-&lt;script&gt;
-const ws = new WebSocket('ws://localhost:8000/ws/chat');
-
-ws.onopen = function(event) {
-    console.log('Connected to WebSocket');
-    
-    // Send a message
-    ws.send(JSON.stringify({
-        username: 'User123',
-        message: 'Hello from client!'
-    }));
-};
-
-ws.onmessage = function(event) {
-    const data = JSON.parse(event.data);
-    console.log('Received:', data);
-    
-    // Update UI based on message type
-    if (data.type === 'chat') {
-        addMessageToUI(data.username, data.message);
-    } else if (data.type === 'system') {
-        addSystemMessage(data.message);
-    }
-};
-
-ws.onclose = function(event) {
-    console.log('WebSocket connection closed');
-};
-
-ws.onerror = function(error) {
-    console.error('WebSocket error:', error);
-};
-
-function sendMessage() {
-    const input = document.getElementById('messageInput');
-    if (input.value.trim()) {
-        ws.send(JSON.stringify({
-            username: 'User123',
-            message: input.value
-        }));
-        input.value = '';
-    }
-}
-&lt;/script&gt;</code></pre>
-
-                    <div class="alert alert-info">
-                        <strong>💡 WebSocket Best Practices:</strong> Always handle connection errors gracefully, implement heartbeat/ping-pong for connection health, and consider using message queues for scalability in production.
-                    </div>
-                </section>
-
-                <!-- Security -->
-                <section id="security">
-                    <h1>🛡️ Security Features</h1>
-
-                    <p>AbriPy includes comprehensive security features out of the box to protect your applications.</p>
-
-                    <h2>🔧 Security Configuration</h2>
-                    <pre><code>from core import Config, SecurityConfig
-
-config = Config()
-config.security = SecurityConfig(
-    secret_key="your-super-secret-key-here",
-    csrf_protection=True,
-    secure_headers=True,
-    rate_limiting=True,
-    allowed_hosts=["localhost", "yourdomain.com"],
-    max_request_size=10 * 1024 * 1024  # 10MB
-)
-
-app = AbriPy(config)</code></pre>
-
-                    <h2>🔒 CSRF Protection</h2>
-                    <pre><code># CSRF protection is enabled by default
-@app.post('/api/sensitive')
-async def sensitive_endpoint(request):
-    # CSRF token is automatically validated for POST/PUT/DELETE
+@app.post('/api/transfer')
+@csrf_protect
+async def transfer_money(request):
     data = await request.json()
-    return {"success": True, "data": data}
+    # Transfer logic here
+    return {"status": "success"}</code></pre>
+                </div>
 
-# Get CSRF token for frontend
-@app.get('/api/csrf-token')
-async def get_csrf_token(request):
-    token = request.csrf_token
-    return {"csrf_token": token}
+                <h3>Rate Limiting</h3>
+                <div class="code-block">
+                    <pre><code class="language-python">from core.security import rate_limit
 
-# Frontend usage example
-"""
-fetch('/api/csrf-token')
-    .then(res => res.json())
-    .then(data => {
-        // Include CSRF token in subsequent requests
-        fetch('/api/sensitive', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-Token': data.csrf_token
-            },
-            body: JSON.stringify({message: 'Hello'})
-        });
-    });
-"""</code></pre>
+@app.get('/api/search')
+@rate_limit(max_requests=100, window_seconds=3600)  # 100 requests per hour
+async def search_api(request):
+    query = request.query_params.get('q')
+    # Search logic here
+    return {"results": []}</code></pre>
+                </div>
 
-                    <h2>🔐 Input Validation & Sanitization</h2>
-                    <pre><code>import re
-from typing import Dict, Any
+                <h3>Input Validation</h3>
+                <div class="code-block">
+                    <pre><code class="language-python">from pydantic import BaseModel, validator
 
-async def validate_user_input(data: Dict[str, Any]) -> Dict[str, Any]:
-    """Comprehensive input validation"""
-    errors = []
-    cleaned_data = {}
+class UserCreate(BaseModel):
+    username: str
+    email: str
+    password: str
     
-    # Required fields
-    required_fields = ['name', 'email', 'age']
-    for field in required_fields:
-        if field not in data or not data[field]:
-            errors.append(f"Missing required field: {field}")
+    @validator('username')
+    def username_must_be_alphanumeric(cls, v):
+        assert v.isalnum(), 'Username must be alphanumeric'
+        return v
     
-    if errors:
-        raise ValueError("; ".join(errors))
-    
-    # Validate and sanitize name
-    name = str(data['name']).strip()
-    if len(name) < 2 or len(name) > 50:
-        raise ValueError("Name must be between 2 and 50 characters")
-    
-    # Remove potentially dangerous characters
-    name = re.sub(r'[<>"\']', '', name)
-    cleaned_data['name'] = name
-    
-    # Validate email
-    email = str(data['email']).strip().lower()
-    email_pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
-    if not re.match(email_pattern, email):
-        raise ValueError("Invalid email format")
-    cleaned_data['email'] = email
-    
-    # Validate age
-    try:
-        age = int(data['age'])
-        if age < 0 or age > 150:
-            raise ValueError("Age must be between 0 and 150")
-        cleaned_data['age'] = age
-    except (ValueError, TypeError):
-        raise ValueError("Age must be a valid number")
-    
-    return cleaned_data
+    @validator('password')
+    def password_must_be_strong(cls, v):
+        if len(v) < 8:
+            raise ValueError('Password must be at least 8 characters')
+        return v
 
 @app.post('/api/users')
 async def create_user(request):
+    data = await request.json()
+    
     try:
-        data = await request.json()
-        validated_data = await validate_user_input(data)
-        
-        # Process validated data
-        # user = await database.create_user(validated_data)
-        
-        return Response.json({
-            "success": True, 
-            "user": validated_data
-        }, status_code=201)
-        
-    except ValueError as e:
-        return Response.json({
-            "error": str(e)
-        }, status_code=400)
+        user_data = UserCreate(**data)
+        # Create user logic
+        return {"message": "User created successfully"}
     except Exception as e:
-        return Response.json({
-            "error": "Internal server error"
-        }, status_code=500)</code></pre>
+        return {"error": str(e)}</code></pre>
+                </div>
+            </section>
 
-                    <h2>🔑 Authentication System</h2>
-                    <pre><code>import hashlib
-import secrets
-import jwt
-from datetime import datetime, timedelta
+            <section id="configuration" class="section">
+                <h2>Configuration</h2>
+                
+                <h3>Configuration Classes</h3>
+                <div class="code-block">
+                    <pre><code class="language-python">from core.config import Config
 
-class AuthManager:
-    def __init__(self, secret_key: str):
-        self.secret_key = secret_key
-        self.algorithm = "HS256"
-    
-    def hash_password(self, password: str) -> str:
-        """Hash password with salt"""
-        salt = secrets.token_hex(16)
-        password_hash = hashlib.pbkdf2_hmac(
-            'sha256',
-            password.encode('utf-8'),
-            salt.encode('utf-8'),
-            100000  # iterations
-        )
-        return f"{salt}:{password_hash.hex()}"
-    
-    def verify_password(self, password: str, hashed: str) -> bool:
-        """Verify password against hash"""
-        try:
-            salt, stored_hash = hashed.split(':')
-            password_hash = hashlib.pbkdf2_hmac(
-                'sha256',
-                password.encode('utf-8'),
-                salt.encode('utf-8'),
-                100000
-            )
-            return password_hash.hex() == stored_hash
-        except:
-            return False
-    
-    def create_access_token(self, user_id: str) -> str:
-        """Create JWT access token"""
-        payload = {
-            "user_id": user_id,
-            "exp": datetime.utcnow() + timedelta(hours=24),
-            "iat": datetime.utcnow()
-        }
-        return jwt.encode(payload, self.secret_key, algorithm=self.algorithm)
-    
-    def verify_token(self, token: str) -> dict:
-        """Verify and decode JWT token"""
-        try:
-            payload = jwt.decode(token, self.secret_key, algorithms=[self.algorithm])
-            return payload
-        except jwt.ExpiredSignatureError:
-            raise ValueError("Token has expired")
-        except jwt.InvalidTokenError:
-            raise ValueError("Invalid token")
-
-# Initialize auth manager
-auth = AuthManager(app.config.security.secret_key)
-
-@app.post('/auth/register')
-async def register(request):
-    data = await request.json()
-    
-    # Validate input
-    username = data.get('username', '').strip()
-    password = data.get('password', '')
-    
-    if len(username) < 3:
-        return Response.json({"error": "Username too short"}, status_code=400)
-    
-    if len(password) < 8:
-        return Response.json({"error": "Password too short"}, status_code=400)
-    
-    # Hash password and save user
-    password_hash = auth.hash_password(password)
-    # user = await database.create_user(username, password_hash)
-    
-    return Response.json({
-        "message": "User created successfully",
-        "username": username
-    }, status_code=201)
-
-@app.post('/auth/login')
-async def login(request):
-    data = await request.json()
-    username = data.get('username')
-    password = data.get('password')
-    
-    # Get user from database
-    # user = await database.get_user_by_username(username)
-    # Mock user for example
-    stored_hash = "example_hash"  # Get from database
-    
-    if not auth.verify_password(password, stored_hash):
-        return Response.json({"error": "Invalid credentials"}, status_code=401)
-    
-    # Create access token
-    access_token = auth.create_access_token(user_id=username)
-    
-    return Response.json({
-        "access_token": access_token,
-        "token_type": "bearer"
-    })
-
-@app.middleware
-class JWTAuthMiddleware:
-    def __init__(self, excluded_paths=None):
-        self.excluded_paths = excluded_paths or ['/auth/login', '/auth/register', '/']
-    
-    async def __call__(self, request, call_next):
-        if request.url.path in self.excluded_paths:
-            return await call_next(request)
-        
-        auth_header = request.headers.get('Authorization')
-        if not auth_header or not auth_header.startswith('Bearer '):
-            return Response.json({"error": "Authentication required"}, status_code=401)
-        
-        token = auth_header[7:]  # Remove 'Bearer '
-        
-        try:
-            payload = auth.verify_token(token)
-            request.user = {"id": payload["user_id"]}
-            return await call_next(request)
-        except ValueError as e:
-            return Response.json({"error": str(e)}, status_code=401)
-
-# Add auth middleware
-app.middleware(JWTAuthMiddleware())</code></pre>
-
-                    <h2>🛡️ Security Headers</h2>
-                    <pre><code>class SecurityHeadersMiddleware:
-    """Add security headers to all responses"""
-    
-    async def __call__(self, request, call_next):
-        response = await call_next(request)
-        
-        # Add security headers
-        response.headers.update({
-            "X-Content-Type-Options": "nosniff",
-            "X-Frame-Options": "DENY",
-            "X-XSS-Protection": "1; mode=block",
-            "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
-            "Content-Security-Policy": "default-src 'self'",
-            "Referrer-Policy": "strict-origin-when-cross-origin",
-            "Permissions-Policy": "geolocation=(), microphone=(), camera=()"
-        })
-        
-        return response
-
-app.middleware(SecurityHeadersMiddleware)</code></pre>
-
-                    <div class="alert alert-danger">
-                        <strong>🚨 Security Reminder:</strong> Always use HTTPS in production, keep dependencies updated, validate all inputs, use environment variables for secrets, and implement proper logging for security events.
-                    </div>
-                </section>
-
-                <!-- Configuration -->
-                <section id="configuration">
-                    <h1>⚙️ Configuration Management</h1>
-
-                    <h2>📝 Configuration Classes</h2>
-                    <pre><code>from core import Config, ServerConfig, SecurityConfig, DatabaseConfig
-
-# Complete application configuration
+# Create configuration
 config = Config()
 
 # Server configuration
-config.server = ServerConfig(
-    host="0.0.0.0",
-    port=8000,
-    debug=True,
-    workers=4,
-    reload=True
-)
+config.server.host = "0.0.0.0"
+config.server.port = 8000
+config.server.debug = True
 
 # Security configuration
-config.security = SecurityConfig(
-    secret_key=os.getenv("SECRET_KEY", "dev-secret-key"),
-    csrf_protection=True,
-    secure_headers=True,
-    allowed_hosts=["localhost", "yourdomain.com"],
-    max_request_size=10 * 1024 * 1024  # 10MB
-)
+config.security.secret_key = "your-secret-key"
+config.security.session_cookie_secure = True
+config.security.csrf_enabled = True
 
-# Database configuration
-config.database = DatabaseConfig(
-    url=os.getenv("DATABASE_URL", "sqlite:///app.db"),
-    pool_size=10,
-    max_overflow=20
-)
+# Database configuration (if using)
+config.database.url = "postgresql://user:pass@localhost/db"
+config.database.pool_size = 10
 
-app = AbriPy(config)</code></pre>
+# Create app with configuration
+app = AbriPy(config=config)</code></pre>
+                </div>
 
-                    <h2>🌍 Environment-based Configuration</h2>
-                    <pre><code>import os
-from core import Config
+                <h3>Environment Variables</h3>
+                <div class="code-block">
+                    <pre><code class="language-python"># Load configuration from environment
+import os
+from core.config import Config
 
-class BaseConfig(Config):
-    """Base configuration"""
-    def __init__(self):
-        super().__init__()
-        self.security.secret_key = os.getenv("SECRET_KEY")
-        self.database.url = os.getenv("DATABASE_URL")
+config = Config()
+config.server.host = os.getenv("HOST", "127.0.0.1")
+                config.server.port = int(os.getenv("PORT", "8000"))
+config.server.debug = os.getenv("DEBUG", "False").lower() == "true"
+config.security.secret_key = os.getenv("SECRET_KEY")
 
-class DevelopmentConfig(BaseConfig):
-    """Development configuration"""
-    def __init__(self):
-        super().__init__()
-        self.server.debug = True
-        self.server.host = "localhost"
-        self.server.port = 8000
-        self.server.reload = True
+app = AbriPy(config=config)</code></pre>
+                </div>
 
-class ProductionConfig(BaseConfig):
-    """Production configuration"""
-    def __init__(self):
-        super().__init__()
-        self.server.debug = False
-        self.server.host = "0.0.0.0"
-        self.server.port = int(os.getenv("PORT", 8000))
-        self.server.workers = int(os.getenv("WORKERS", 4))
-        self.security.secure_headers = True
-
-class TestingConfig(BaseConfig):
-    """Testing configuration"""
-    def __init__(self):
-        super().__init__()
-        self.server.debug = True
-        self.database.url = "sqlite:///:memory:"
-
-# Configuration factory
-def get_config():
-    env = os.getenv("ENVIRONMENT", "development").lower()
-    
-    if env == "production":
-        return ProductionConfig()
-    elif env == "testing":
-        return TestingConfig()
-    else:
-        return DevelopmentConfig()
-
-# Use configuration
-config = get_config()
-app = AbriPy(config)</code></pre>
-
-                    <h2>📄 Configuration from Files</h2>
-                    <pre><code># config.yaml
+                <h3>Configuration from File</h3>
+                <div class="code-block">
+                    <pre><code class="language-python"># config.yaml
 server:
   host: "0.0.0.0"
   port: 8000
-  debug: true
-  workers: 4
+  debug: false
 
 security:
-  secret_key: "${SECRET_KEY}"
-  csrf_protection: true
-  secure_headers: true
-  allowed_hosts:
-    - "localhost"
-    - "yourdomain.com"
+  secret_key: "your-secret-key-here"
+  csrf_enabled: true
+  session_cookie_secure: true
 
 database:
-  url: "${DATABASE_URL}"
-  pool_size: 10
+  url: "sqlite:///app.db"
+  pool_size: 5</code></pre>
+                </div>
 
-# Python code to load YAML config
+                <div class="code-block">
+                    <pre><code class="language-python"># Load from YAML file
 import yaml
-import os
-from core import Config
+from core.config import Config
 
-def load_config_from_yaml(file_path: str) -> Config:
+def load_config_from_yaml(file_path):
     with open(file_path, 'r') as file:
         data = yaml.safe_load(file)
     
-    # Replace environment variables
-    def replace_env_vars(obj):
-        if isinstance(obj, dict):
-            return {k: replace_env_vars(v) for k, v in obj.items()}
-        elif isinstance(obj, list):
-            return [replace_env_vars(item) for item in obj]
-        elif isinstance(obj, str) and obj.startswith("${") and obj.endswith("}"):
-            env_var = obj[2:-1]
-            return os.getenv(env_var, obj)
-        return obj
-    
-    data = replace_env_vars(data)
-    
-    # Create config object
     config = Config()
     
-    # Server config
+    # Map YAML data to config object
     if 'server' in data:
-        config.server.host = data['server'].get('host', 'localhost')
+        config.server.host = data['server'].get('host', '127.0.0.1')
         config.server.port = data['server'].get('port', 8000)
         config.server.debug = data['server'].get('debug', False)
-        config.server.workers = data['server'].get('workers', 1)
     
-    # Security config
     if 'security' in data:
         config.security.secret_key = data['security'].get('secret_key')
-        config.security.csrf_protection = data['security'].get('csrf_protection', True)
-        config.security.secure_headers = data['security'].get('secure_headers', True)
-        config.security.allowed_hosts = data['security'].get('allowed_hosts', [])
-    
-    # Database config
-    if 'database' in data:
-        config.database.url = data['database'].get('url')
-        config.database.pool_size = data['database'].get('pool_size', 5)
+        config.security.csrf_enabled = data['security'].get('csrf_enabled', True)
     
     return config
 
-# Load configuration from YAML file
+# Usage
 config = load_config_from_yaml('config.yaml')
-app = AbriPy(config)</code></pre>
+app = AbriPy(config=config)</code></pre>
+                </div>
+            </section>
 
-                    <h2>🔐 Environment Variables</h2>
-                    <pre><code># .env file
-SECRET_KEY=your-super-secret-key-here
-DATABASE_URL=postgresql://user:password@localhost/dbname
-REDIS_URL=redis://localhost:6379
-ENVIRONMENT=development
-DEBUG=true
-PORT=8000
-WORKERS=4
-
-# Python code to load .env
-import os
-from pathlib import Path
-
-def load_env_file(file_path: str = ".env"):
-    """Load environment variables from .env file"""
-    env_path = Path(file_path)
-    if env_path.exists():
-        with open(env_path) as f:
-            for line in f:
-                line = line.strip()
-                if line and not line.startswith('#'):
-                    key, value = line.split('=', 1)
-                    os.environ.setdefault(key, value)
-
-# Load environment variables at startup
-load_env_file()
-
-# Access environment variables with defaults
-class EnvironmentConfig:
-    SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-key")
-    DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///app.db")
-    REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379")
-    ENVIRONMENT = os.getenv("ENVIRONMENT", "development")
-    DEBUG = os.getenv("DEBUG", "false").lower() == "true"
-    PORT = int(os.getenv("PORT", 8000))
-    WORKERS = int(os.getenv("WORKERS", 1))
-    
-    # Feature flags
-    ENABLE_RATE_LIMITING = os.getenv("ENABLE_RATE_LIMITING", "true").lower() == "true"
-    ENABLE_METRICS = os.getenv("ENABLE_METRICS", "false").lower() == "true"
-    ENABLE_LOGGING = os.getenv("ENABLE_LOGGING", "true").lower() == "true"
-
-# Use environment config
-env_config = EnvironmentConfig()
-config = Config()
-config.server.port = env_config.PORT
-config.server.debug = env_config.DEBUG
-config.security.secret_key = env_config.SECRET_KEY</code></pre>
-
-                    <div class="alert alert-warning">
-                        <strong>⚠️ Security Note:</strong> Never commit .env files or secrets to version control. Use environment variables or secure secret management services in production.
-                    </div>
-                </section>
-
-                <!-- Examples -->
-                <section id="examples">
-                    <h1>💡 Real-World Examples</h1>
-
-                    <h2>🛒 E-commerce API</h2>
-                    <pre><code>from typing import List, Optional
-from dataclasses import dataclass
+            <section id="examples" class="section">
+                <h2>Examples</h2>
+                
+                <h3>Simple Blog API</h3>
+                <div class="code-block">
+                    <pre><code class="language-python"># blog_api.py
+from core.application import AbriPy
+from web.response import Response
 import json
 
-@dataclass
-class Product:
-    id: str
-    name: str
-    price: float
-    description: str
-    stock: int
+app = AbriPy()
 
-@dataclass
-class CartItem:
-    product_id: str
-    quantity: int
+# In-memory storage (use a real database in production)
+posts = []
+next_id = 1
 
-# Mock database
-products_db = {
-    "1": Product("1", "Laptop", 999.99, "High-performance laptop", 10),
-    "2": Product("2", "Mouse", 29.99, "Wireless mouse", 50),
-    "3": Product("3", "Keyboard", 89.99, "Mechanical keyboard", 25)
-}
+@app.get('/api/posts')
+async def get_posts(request):
+    """Get all blog posts"""
+    return {"posts": posts, "count": len(posts)}
 
-carts_db = {}  # session_id -> List[CartItem]
-
-# Product endpoints
-@app.get('/api/products')
-async def list_products():
-    return {
-        "products": [
-            {
-                "id": p.id,
-                "name": p.name,
-                "price": p.price,
-                "description": p.description,
-                "stock": p.stock
-            }
-            for p in products_db.values()
-        ]
-    }
-
-@app.get('/api/products/{product_id}')
-async def get_product(request):
-    product_id = request.path_params['product_id']
+@app.get('/api/posts/{post_id}')
+async def get_post(request):
+    """Get a specific blog post"""
+    post_id = int(request.path_params['post_id'])
     
-    if product_id not in products_db:
-        return Response.json({"error": "Product not found"}, status_code=404)
+    for post in posts:
+        if post['id'] == post_id:
+            return post
     
-    product = products_db[product_id]
-    return {
-        "id": product.id,
-        "name": product.name,
-        "price": product.price,
-        "description": product.description,
-        "stock": product.stock
-    }
+    return Response.json(
+        {"error": "Post not found"}, 
+        status_code=404
+    )
 
-# Cart endpoints
-@app.post('/api/cart/add')
-async def add_to_cart(request):
+@app.post('/api/posts')
+async def create_post(request):
+    """Create a new blog post"""
+    global next_id
+    
     data = await request.json()
-    session_id = request.headers.get('X-Session-ID', 'default')
     
-    product_id = data.get('product_id')
-    quantity = data.get('quantity', 1)
+    # Validate required fields
+    if not data.get('title') or not data.get('content'):
+        return Response.json(
+            {"error": "Title and content are required"}, 
+            status_code=400
+        )
     
-    if product_id not in products_db:
-        return Response.json({"error": "Product not found"}, status_code=404)
+    new_post = {
+        "id": next_id,
+        "title": data['title'],
+        "content": data['content'],
+        "author": data.get('author', 'Anonymous'),
+        "created_at": "2025-07-20T12:00:00Z"
+    }
     
-    product = products_db[product_id]
-    if quantity > product.stock:
-        return Response.json({"error": "Insufficient stock"}, status_code=400)
+    posts.append(new_post)
+    next_id += 1
     
-    # Add to cart
-    if session_id not in carts_db:
-        carts_db[session_id] = []
-    
-    # Check if item already in cart
-    for item in carts_db[session_id]:
-        if item.product_id == product_id:
-            item.quantity += quantity
-            break
-    else:
-        carts_db[session_id].append(CartItem(product_id, quantity))
-    
-    return {"message": "Item added to cart", "cart_items": len(carts_db[session_id])}
+    return Response.json(new_post, status_code=201)
 
-@app.get('/api/cart')
-async def get_cart(request):
-    session_id = request.headers.get('X-Session-ID', 'default')
+@app.put('/api/posts/{post_id}')
+async def update_post(request):
+    """Update an existing blog post"""
+    post_id = int(request.path_params['post_id'])
+    data = await request.json()
     
-    if session_id not in carts_db:
-        return {"items": [], "total": 0}
+    for i, post in enumerate(posts):
+        if post['id'] == post_id:
+            posts[i].update({
+                "title": data.get('title', post['title']),
+                "content": data.get('content', post['content']),
+                "author": data.get('author', post['author'])
+            })
+            return posts[i]
     
-    cart_items = []
-    total = 0
+    return Response.json(
+        {"error": "Post not found"}, 
+        status_code=404
+    )
+
+@app.delete('/api/posts/{post_id}')
+async def delete_post(request):
+    """Delete a blog post"""
+    post_id = int(request.path_params['post_id'])
     
-    for item in carts_db[session_id]:
-        product = products_db[item.product_id]
-        item_total = product.price * item.quantity
-        total += item_total
+    for i, post in enumerate(posts):
+        if post['id'] == post_id:
+            deleted_post = posts.pop(i)
+            return {"message": "Post deleted", "post": deleted_post}
+    
+    return Response.json(
+        {"error": "Post not found"}, 
+        status_code=404
+    )
+
+if __name__ == "__main__":
+    app.run(debug=True)</code></pre>
+                </div>
+
+                <h3>File Upload API</h3>
+                <div class="code-block">
+                    <pre><code class="language-python"># file_upload.py
+from core.application import AbriPy
+from web.response import Response
+import os
+import uuid
+
+app = AbriPy()
+
+# Create uploads directory
+UPLOAD_DIR = "uploads"
+os.makedirs(UPLOAD_DIR, exist_ok=True)
+
+@app.get('/')
+async def upload_form(request):
+    """Serve upload form"""
+    html = """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>File Upload</title>
+    </head>
+    <body>
+        <h1>Upload File</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <button type="submit">Upload</button>
+        </form>
+    </body>
+    </html>
+    """
+    return Response.html(html)
+
+@app.post('/upload')
+async def upload_file(request):
+    """Handle file upload"""
+    try:
+        form = await request.form()
+        file = form.get('file')
         
-        cart_items.append({
-            "product_id": item.product_id,
-            "name": product.name,
-            "price": product.price,
-            "quantity": item.quantity,
-            "total": item_total
-        })
-    
-    return {"items": cart_items, "total": total}
-
-@app.post('/api/checkout')
-async def checkout(request):
-    session_id = request.headers.get('X-Session-ID', 'default')
-    data = await request.json()
-    
-    if session_id not in carts_db or not carts_db[session_id]:
-        return Response.json({"error": "Cart is empty"}, status_code=400)
-    
-    # Process payment (mock)
-    payment_method = data.get('payment_method')
-    shipping_address = data.get('shipping_address')
-    
-    if not payment_method or not shipping_address:
-        return Response.json({"error": "Missing payment or shipping info"}, status_code=400)
-    
-    # Calculate total and update stock
-    total = 0
-    order_items = []
-    
-    for item in carts_db[session_id]:
-        product = products_db[item.product_id]
-        if item.quantity > product.stock:
+        if not file or not file.filename:
             return Response.json(
-                {"error": f"Insufficient stock for {product.name}"}, 
+                {"error": "No file provided"}, 
                 status_code=400
             )
         
-        # Update stock
-        product.stock -= item.quantity
-        item_total = product.price * item.quantity
-        total += item_total
+        # Generate unique filename
+        file_extension = os.path.splitext(file.filename)[1]
+        unique_filename = f"{uuid.uuid4()}{file_extension}"
+        file_path = os.path.join(UPLOAD_DIR, unique_filename)
         
-        order_items.append({
-            "product_id": item.product_id,
-            "name": product.name,
-            "quantity": item.quantity,
-            "price": product.price,
-            "total": item_total
-        })
-    
-    # Clear cart
-    del carts_db[session_id]
-    
-    # Create order (mock)
-    order_id = f"order_{len(carts_db) + 1000}"
-    
-    return {
-        "order_id": order_id,
-        "items": order_items,
-        "total": total,
-        "status": "confirmed",
-        "estimated_delivery": "3-5 business days"
-    }</code></pre>
-
-                    <h2>👥 Social Media API</h2>
-                    <pre><code>from datetime import datetime
-from typing import List, Dict
-
-@dataclass
-class User:
-    id: str
-    username: str
-    email: str
-    bio: str
-    followers: List[str]
-    following: List[str]
-    created_at: datetime
-
-@dataclass
-class Post:
-    id: str
-    user_id: str
-    content: str
-    likes: List[str]
-    comments: List[str]
-    created_at: datetime
-
-# Mock databases
-users_db: Dict[str, User] = {}
-posts_db: Dict[str, Post] = {}
-comments_db: Dict[str, dict] = {}
-
-# User management
-@app.post('/api/users')
-async def create_user(request):
-    data = await request.json()
-    
-    user_id = f"user_{len(users_db) + 1}"
-    user = User(
-        id=user_id,
-        username=data['username'],
-        email=data['email'],
-        bio=data.get('bio', ''),
-        followers=[],
-        following=[],
-        created_at=datetime.now()
-    )
-    
-    users_db[user_id] = user
-    
-    return Response.json({
-        "id": user.id,
-        "username": user.username,
-        "email": user.email,
-        "bio": user.bio,
-        "followers_count": 0,
-        "following_count": 0
-    }, status_code=201)
-
-@app.get('/api/users/{user_id}')
-async def get_user(request):
-    user_id = request.path_params['user_id']
-    
-    if user_id not in users_db:
-        return Response.json({"error": "User not found"}, status_code=404)
-    
-    user = users_db[user_id]
-    return {
-        "id": user.id,
-        "username": user.username,
-        "bio": user.bio,
-        "followers_count": len(user.followers),
-        "following_count": len(user.following),
-        "created_at": user.created_at.isoformat()
-    }
-
-# Follow/Unfollow
-@app.post('/api/users/{user_id}/follow')
-async def follow_user(request):
-    user_id = request.path_params['user_id']
-    data = await request.json()
-    follower_id = data['follower_id']
-    
-    if user_id not in users_db or follower_id not in users_db:
-        return Response.json({"error": "User not found"}, status_code=404)
-    
-    if follower_id == user_id:
-        return Response.json({"error": "Cannot follow yourself"}, status_code=400)
-    
-    user = users_db[user_id]
-    follower = users_db[follower_id]
-    
-    if follower_id not in user.followers:
-        user.followers.append(follower_id)
-        follower.following.append(user_id)
-    
-    return {"message": f"{follower.username} is now following {user.username}"}
-
-# Posts
-@app.post('/api/posts')
-async def create_post(request):
-    data = await request.json()
-    
-    post_id = f"post_{len(posts_db) + 1}"
-    post = Post(
-        id=post_id,
-        user_id=data['user_id'],
-        content=data['content'],
-        likes=[],
-        comments=[],
-        created_at=datetime.now()
-    )
-    
-    posts_db[post_id] = post
-    
-    return Response.json({
-        "id": post.id,
-        "user_id": post.user_id,
-        "content": post.content,
-        "likes_count": 0,
-        "comments_count": 0,
-        "created_at": post.created_at.isoformat()
-    }, status_code=201)
-
-@app.get('/api/posts')
-async def get_feed(request):
-    # Get recent posts (in real app, you'd implement pagination and user-specific feeds)
-    recent_posts = sorted(posts_db.values(), key=lambda p: p.created_at, reverse=True)[:20]
-    
-    feed = []
-    for post in recent_posts:
-        user = users_db.get(post.user_id)
-        feed.append({
-            "id": post.id,
-            "content": post.content,
-            "likes_count": len(post.likes),
-            "comments_count": len(post.comments),
-            "created_at": post.created_at.isoformat(),
-            "user": {
-                "id": user.id,
-                "username": user.username
-            } if user else None
-        })
-    
-    return {"posts": feed}
-
-@app.post('/api/posts/{post_id}/like')
-async def like_post(request):
-    post_id = request.path_params['post_id']
-    data = await request.json()
-    user_id = data['user_id']
-    
-    if post_id not in posts_db:
-        return Response.json({"error": "Post not found"}, status_code=404)
-    
-    post = posts_db[post_id]
-    
-    if user_id in post.likes:
-        # Unlike
-        post.likes.remove(user_id)
-        action = "unliked"
-    else:
-        # Like
-        post.likes.append(user_id)
-        action = "liked"
-    
-    return {
-        "message": f"Post {action}",
-        "likes_count": len(post.likes)
-    }</code></pre>
-
-                    <h2>📊 Analytics Dashboard</h2>
-                    <pre><code>import asyncio
-import random
-from datetime import datetime, timedelta
-
-# Analytics data storage
-analytics_data = {
-    "page_views": [],
-    "user_sessions": [],
-    "api_calls": []
-}
-
-@app.post('/api/analytics/track')
-async def track_event(request):
-    data = await request.json()
-    
-    event = {
-        "type": data.get("type"),
-        "page": data.get("page"),
-        "user_id": data.get("user_id"),
-        "timestamp": datetime.now(),
-        "metadata": data.get("metadata", {})
-    }
-    
-    # Store event based on type
-    if event["type"] == "page_view":
-        analytics_data["page_views"].append(event)
-    elif event["type"] == "api_call":
-        analytics_data["api_calls"].append(event)
-    
-    return {"status": "tracked"}
-
-@app.get('/api/analytics/dashboard')
-async def get_dashboard_data(request):
-    now = datetime.now()
-    last_24h = now - timedelta(hours=24)
-    
-    # Calculate metrics for last 24 hours
-    recent_page_views = [
-        event for event in analytics_data["page_views"]
-        if event["timestamp"] > last_24h
-    ]
-    
-    recent_api_calls = [
-        event for event in analytics_data["api_calls"]
-        if event["timestamp"] > last_24h
-    ]
-    
-    # Top pages
-    page_counts = {}
-    for event in recent_page_views:
-        page = event["page"]
-        page_counts[page] = page_counts.get(page, 0) + 1
-    
-    top_pages = sorted(page_counts.items(), key=lambda x: x[1], reverse=True)[:10]
-    
-    # Hourly breakdown
-    hourly_data = {}
-    for hour in range(24):
-        hour_start = now - timedelta(hours=hour+1)
-        hour_end = now - timedelta(hours=hour)
+        # Save file
+        content = await file.read()
+        with open(file_path, 'wb') as f:
+            f.write(content)
         
-        hourly_views = len([
-            event for event in recent_page_views
-            if hour_start <= event["timestamp"] < hour_end
-        ])
+        return {
+            "message": "File uploaded successfully",
+            "filename": unique_filename,
+            "original_name": file.filename,
+            "size": len(content)
+        }
         
-        hourly_data[hour] = hourly_views
+    except Exception as e:
+        return Response.json(
+            {"error": f"Upload failed: {str(e)}"}, 
+            status_code=500
+        )
+
+@app.get('/files/{filename}')
+async def download_file(request):
+    """Download uploaded file"""
+    filename = request.path_params['filename']
+    file_path = os.path.join(UPLOAD_DIR, filename)
     
-    return {
-        "total_page_views_24h": len(recent_page_views),
-        "total_api_calls_24h": len(recent_api_calls),
-        "top_pages": [{"page": page, "views": count} for page, count in top_pages],
-        "hourly_breakdown": hourly_data,
-        "current_active_users": random.randint(10, 100)  # Mock data
-    }
-
-# WebSocket for real-time analytics
-active_dashboard_connections = set()
-
-@app.websocket('/ws/analytics')
-async def analytics_websocket(websocket):
-    await websocket.accept()
-    active_dashboard_connections.add(websocket)
+    if not os.path.exists(file_path):
+        return Response.json(
+            {"error": "File not found"}, 
+            status_code=404
+        )
     
-    try:
-        while True:
-            await websocket.receive_text()  # Keep connection alive
-    except:
-        pass
-    finally:
-        active_dashboard_connections.discard(websocket)
+    return Response.file(file_path)
 
-async def broadcast_analytics_update():
-    """Send real-time analytics updates"""
-    while True:
-        if active_dashboard_connections:
-            # Generate mock real-time data
-            update = {
-                "type": "analytics_update",
-                "data": {
-                    "current_users": random.randint(50, 200),
-                    "requests_per_minute": random.randint(100, 500),
-                    "avg_response_time": round(random.uniform(0.1, 2.0), 2),
-                    "error_rate": round(random.uniform(0, 5), 2)
+@app.get('/api/files')
+async def list_files(request):
+    """List uploaded files"""
+    files = []
+    for filename in os.listdir(UPLOAD_DIR):
+        file_path = os.path.join(UPLOAD_DIR, filename)
+        if os.path.isfile(file_path):
+            files.append({
+                "filename": filename,
+                "size": os.path.getsize(file_path)
+            })
+    
+    return {"files": files}
+
+if __name__ == "__main__":
+    app.run(debug=True)</code></pre>
+                </div>
+
+                <h3>Real-time Chat Application</h3>
+                <div class="code-block">
+                    <pre><code class="language-python"># chat_app.py
+from core.application import AbriPy
+from web.response import Response
+import json
+from datetime import datetime
+
+app = AbriPy()
+
+class ChatManager:
+    def __init__(self):
+        self.connections = {}
+        self.messages = []
+    
+    async def connect(self, websocket, username):
+        await websocket.accept()
+        self.connections[username] = websocket
+        
+        # Send recent messages to new user
+        for message in self.messages[-10:]:  # Last 10 messages
+            await websocket.send_text(json.dumps(message))
+        
+        # Notify others about new user
+        await self.broadcast({
+            "type": "user_joined",
+            "username": username,
+            "timestamp": datetime.now().isoformat()
+        }, exclude=username)
+    
+    def disconnect(self, username):
+        if username in self.connections:
+            del self.connections[username]
+    
+    async def broadcast(self, message, exclude=None):
+        for username, websocket in self.connections.items():
+            if username != exclude:
+                try:
+                    await websocket.send_text(json.dumps(message))
+                except:
+                    self.disconnect(username)
+    
+    async def send_message(self, username, content):
+        message = {
+            "type": "message",
+            "username": username,
+            "content": content,
+            "timestamp": datetime.now().isoformat()
+        }
+        
+        self.messages.append(message)
+        # Keep only last 100 messages
+        if len(self.messages) > 100:
+            self.messages = self.messages[-100:]
+        
+        await self.broadcast(message)
+
+chat_manager = ChatManager()
+
+@app.get('/')
+async def chat_page(request):
+    """Serve chat page"""
+    html = """
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>AbriPy Chat</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            #messages { border: 1px solid #ccc; height: 400px; 
+                       overflow-y: scroll; padding: 10px; margin-bottom: 10px; }
+            #messageInput { width: 70%; padding: 5px; }
+            #sendButton { padding: 5px 10px; }
+            .message { margin: 5px 0; }
+            .username { font-weight: bold; color: #007bff; }
+            .timestamp { font-size: 0.8em; color: #666; }
+        </style>
+    </head>
+    <body>
+        <h1>AbriPy Chat Room</h1>
+        <div id="messages"></div>
+        <div>
+            <input type="text" id="messageInput" placeholder="Type your message...">
+            <button id="sendButton">Send</button>
+        </div>
+        
+        <script>
+            const username = prompt("Enter your username:");
+            if (!username) location.reload();
+            
+            const ws = new WebSocket(`ws://localhost:8000/chat/${username}`);
+            const messages = document.getElementById('messages');
+            const messageInput = document.getElementById('messageInput');
+            const sendButton = document.getElementById('sendButton');
+            
+            ws.onmessage = function(event) {
+                const message = JSON.parse(event.data);
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message';
+                
+                if (message.type === 'message') {
+                    messageDiv.innerHTML = `
+                        <span class="username">${message.username}:</span>
+                        ${message.content}
+                        <span class="timestamp">${new Date(message.timestamp).toLocaleTimeString()}</span>
+                    `;
+                } else if (message.type === 'user_joined') {
+                    messageDiv.innerHTML = `<em>${message.username} joined the chat</em>`;
+                }
+                
+                messages.appendChild(messageDiv);
+                messages.scrollTop = messages.scrollHeight;
+            };
+            
+            function sendMessage() {
+                const content = messageInput.value.trim();
+                if (content) {
+                    ws.send(content);
+                    messageInput.value = '';
                 }
             }
             
-            message = json.dumps(update)
-            disconnected = set()
-            
-            for connection in active_dashboard_connections:
-                try:
-                    await connection.send_text(message)
-                except:
-                    disconnected.add(connection)
-            
-            active_dashboard_connections -= disconnected
-        
-        await asyncio.sleep(5)  # Update every 5 seconds
+            sendButton.onclick = sendMessage;
+            messageInput.onkeypress = function(e) {
+                if (e.key === 'Enter') sendMessage();
+            };
+        </script>
+    </body>
+    </html>
+    """
+    return Response.html(html)
 
-# Start analytics broadcasting task
-@app.before_request
-async def start_analytics_task():
-    asyncio.create_task(broadcast_analytics_update())</code></pre>
+@app.websocket('/chat/{username}')
+async def chat_websocket(websocket):
+    username = websocket.path_params['username']
+    
+    await chat_manager.connect(websocket, username)
+    
+    try:
+        while True:
+            message = await websocket.receive_text()
+            await chat_manager.send_message(username, message)
+    except Exception as e:
+        print(f"Chat error for {username}: {e}")
+    finally:
+        chat_manager.disconnect(username)
 
-                    <div class="alert alert-success">
-                        <strong>🎉 Example Complete!</strong> These examples demonstrate real-world patterns you can use in your AbriPy applications. Remember to add proper error handling, logging, and database integration for production use.
-                    </div>
-                </section>
+if __name__ == "__main__":
+    app.run(debug=True)</code></pre>
+                </div>
+            </section>
 
-                <!-- API Reference -->
-                <section id="api-reference">
-                    <h1>📚 API Reference</h1>
+            <section id="api-reference" class="section">
+                <h2>API Reference</h2>
+                
+                <h3>AbriPy Class</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Description</th>
+                            <th>Parameters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>__init__(config=None)</code></td>
+                            <td>Initialize AbriPy application</td>
+                            <td><code>config</code>: Optional Config object</td>
+                        </tr>
+                        <tr>
+                            <td><code>get(path)</code></td>
+                            <td>Register GET route</td>
+                            <td><code>path</code>: URL path pattern</td>
+                        </tr>
+                        <tr>
+                            <td><code>post(path)</code></td>
+                            <td>Register POST route</td>
+                            <td><code>path</code>: URL path pattern</td>
+                        </tr>
+                        <tr>
+                            <td><code>put(path)</code></td>
+                            <td>Register PUT route</td>
+                            <td><code>path</code>: URL path pattern</td>
+                        </tr>
+                        <tr>
+                            <td><code>delete(path)</code></td>
+                            <td>Register DELETE route</td>
+                            <td><code>path</code>: URL path pattern</td>
+                        </tr>
+                        <tr>
+                            <td><code>websocket(path)</code></td>
+                            <td>Register WebSocket route</td>
+                            <td><code>path</code>: URL path pattern</td>
+                        </tr>
+                        <tr>
+                            <td><code>middleware(middleware_class)</code></td>
+                            <td>Add middleware</td>
+                            <td><code>middleware_class</code>: Middleware class</td>
+                        </tr>
+                        <tr>
+                            <td><code>run(host, port, debug)</code></td>
+                            <td>Run the application</td>
+                            <td><code>host</code>, <code>port</code>, <code>debug</code>: Server options</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-                    <h2>🏗️ AbriPy Class</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Method</th>
-                                <th>Description</th>
-                                <th>Parameters</th>
-                                <th>Returns</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>__init__(config)</code></td>
-                                <td>Initialize AbriPy application</td>
-                                <td><code>config: Config</code> (optional)</td>
-                                <td>AbriPy instance</td>
-                            </tr>
-                            <tr>
-                                <td><code>route(path, methods)</code></td>
-                                <td>Register route decorator</td>
-                                <td><code>path: str</code>, <code>methods: List[str]</code></td>
-                                <td>Decorator function</td>
-                            </tr>
-                            <tr>
-                                <td><code>get(path)</code></td>
-                                <td>GET route decorator</td>
-                                <td><code>path: str</code></td>
-                                <td>Decorator function</td>
-                            </tr>
-                            <tr>
-                                <td><code>post(path)</code></td>
-                                <td>POST route decorator</td>
-                                <td><code>path: str</code></td>
-                                <td>Decorator function</td>
-                            </tr>
-                            <tr>
-                                <td><code>put(path)</code></td>
-                                <td>PUT route decorator</td>
-                                <td><code>path: str</code></td>
-                                <td>Decorator function</td>
-                            </tr>
-                            <tr>
-                                <td><code>delete(path)</code></td>
-                                <td>DELETE route decorator</td>
-                                <td><code>path: str</code></td>
-                                <td>Decorator function</td>
-                            </tr>
-                            <tr>
-                                <td><code>websocket(path)</code></td>
-                                <td>WebSocket route decorator</td>
-                                <td><code>path: str</code></td>
-                                <td>Decorator function</td>
-                            </tr>
-                            <tr>
-                                <td><code>middleware(middleware_class)</code></td>
-                                <td>Add middleware</td>
-                                <td><code>middleware_class: Callable</code></td>
-                                <td>middleware_class</td>
-                            </tr>
-                            <tr>
-                                <td><code>before_request(func)</code></td>
-                                <td>Add before request handler</td>
-                                <td><code>func: Callable</code></td>
-                                <td>func</td>
-                            </tr>
-                            <tr>
-                                <td><code>after_request(func)</code></td>
-                                <td>Add after request handler</td>
-                                <td><code>func: Callable</code></td>
-                                <td>func</td>
-                            </tr>
-                            <tr>
-                                <td><code>run(host, port, debug)</code></td>
-                                <td>Run the application</td>
-                                <td><code>host: str</code>, <code>port: int</code>, <code>debug: bool</code></td>
-                                <td>None</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <h3>Request Class</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Property/Method</th>
+                            <th>Description</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>method</code></td>
+                            <td>HTTP method (GET, POST, etc.)</td>
+                            <td>string</td>
+                        </tr>
+                        <tr>
+                            <td><code>path</code></td>
+                            <td>Request path</td>
+                            <td>string</td>
+                        </tr>
+                        <tr>
+                            <td><code>headers</code></td>
+                            <td>Request headers</td>
+                            <td>dict</td>
+                        </tr>
+                        <tr>
+                            <td><code>path_params</code></td>
+                            <td>Path parameters</td>
+                            <td>dict</td>
+                        </tr>
+                        <tr>
+                            <td><code>query_params</code></td>
+                            <td>Query parameters</td>
+                            <td>dict</td>
+                        </tr>
+                        <tr>
+                            <td><code>json()</code></td>
+                            <td>Parse JSON body</td>
+                            <td>async method</td>
+                        </tr>
+                        <tr>
+                            <td><code>form()</code></td>
+                            <td>Parse form data</td>
+                            <td>async method</td>
+                        </tr>
+                        <tr>
+                            <td><code>body()</code></td>
+                            <td>Get raw body</td>
+                            <td>async method</td>
+                        </tr>
+                    </tbody>
+                </table>
 
-                    <h2>📝 Request Class</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Property/Method</th>
-                                <th>Type</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>method</code></td>
-                                <td><code>str</code></td>
-                                <td>HTTP method (GET, POST, etc.)</td>
-                            </tr>
-                            <tr>
-                                <td><code>url</code></td>
-                                <td><code>URL</code></td>
-                                <td>Request URL object</td>
-                            </tr>
-                            <tr>
-                                <td><code>headers</code></td>
-                                <td><code>Headers</code></td>
-                                <td>Request headers</td>
-                            </tr>
-                            <tr>
-                                <td><code>path_params</code></td>
-                                <td><code>Dict[str, str]</code></td>
-                                <td>URL path parameters</td>
-                            </tr>
-                            <tr>
-                                <td><code>query_params</code></td>
-                                <td><code>QueryParams</code></td>
-                                <td>Query string parameters</td>
-                            </tr>
-                            <tr>
-                                <td><code>cookies</code></td>
-                                <td><code>Dict[str, str]</code></td>
-                                <td>Request cookies</td>
-                            </tr>
-                            <tr>
-                                <td><code>client</code></td>
-                                <td><code>Address</code></td>
-                                <td>Client address info</td>
-                            </tr>
-                            <tr>
-                                <td><code>json()</code></td>
-                                <td><code>async -> Any</code></td>
-                                <td>Parse JSON body</td>
-                            </tr>
-                            <tr>
-                                <td><code>form()</code></td>
-                                <td><code>async -> FormData</code></td>
-                                <td>Parse form data</td>
-                            </tr>
-                            <tr>
-                                <td><code>body()</code></td>
-                                <td><code>async -> bytes</code></td>
-                                <td>Get raw body bytes</td>
-                            </tr>
-                            <tr>
-                                <td><code>text()</code></td>
-                                <td><code>async -> str</code></td>
-                                <td>Get body as text</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <h3>Response Class</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Method</th>
+                            <th>Description</th>
+                            <th>Parameters</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>Response(content, status_code, headers)</code></td>
+                            <td>Create response</td>
+                            <td>content, status_code=200, headers=None</td>
+                        </tr>
+                        <tr>
+                            <td><code>Response.json(data, status_code, headers)</code></td>
+                            <td>Create JSON response</td>
+                            <td>data, status_code=200, headers=None</td>
+                        </tr>
+                        <tr>
+                            <td><code>Response.html(content, status_code, headers)</code></td>
+                            <td>Create HTML response</td>
+                            <td>content, status_code=200, headers=None</td>
+                        </tr>
+                        <tr>
+                            <td><code>Response.file(file_path, headers)</code></td>
+                            <td>Create file response</td>
+                            <td>file_path, headers=None</td>
+                        </tr>
+                        <tr>
+                            <td><code>Response.redirect(url, status_code)</code></td>
+                            <td>Create redirect response</td>
+                            <td>url, status_code=302</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
 
-                    <h2>📤 Response Class</h2>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Method</th>
-                                <th>Description</th>
-                                <th>Parameters</th>
-                                <th>Returns</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><code>__init__(content, status_code, headers)</code></td>
-                                <td>Create response</td>
-                                <td><code>content: str</code>, <code>status_code: int</code>, <code>headers: dict</code></td>
-                                <td>Response instance</td>
-                            </tr>
-                            <tr>
-                                <td><code>json(data, status_code)</code></td>
-                                <td>Create JSON response</td>
-                                <td><code>data: Any</code>, <code>status_code: int</code></td>
-                                <td>Response instance</td>
-                            </tr>
-                            <tr>
-                                <td><code>file(path, filename)</code></td>
-                                <td>Create file response</td>
-                                <td><code>path: str</code>, <code>filename: str</code></td>
-                                <td>Response instance</td>
-                            </tr>
-                            <tr>
-                                <td><code>redirect(url, status_code)</code></td>
-                                <td>Create redirect response</td>
-                                <td><code>url: str</code>, <code>status_code: int</code></td>
-                                <td>Response instance</td>
-                            </tr>
-                            <tr>
-                                <td><code>stream(generator, media_type)</code></td>
-                                <td>Create streaming response</td>
-                                <td><code>generator: AsyncGenerator</code>, <code>media_type: str</code></td>
-                                <td>Response instance</td>
-                            </tr>
-                            <tr>
-                                <td><code>set_cookie(key, value, **options)</code></td>
-                                <td>Set response cookie</td>
-                                <td><code>key: str</code>, <code>value: str</code>, <code>options: dict</code></td>
-                                <td>None</td>
-                            </tr>
-                            <tr>
-                                <td><code>delete_cookie(key)</code></td>
-                                <td>Delete cookie</td>
-                                <td><code>key: str</code></td>
-                                <td>None</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <section id="deployment" class="section">
+                <h2>Deployment</h2>
+                
+                <h3>Production with Gunicorn</h3>
+                <div class="code-block">
+                    <pre><code class="language-bash"># Install gunicorn
+pip install gunicorn
 
-                    <h2>⚙️ Configuration Classes</h2>
-                    
-                    <h3>Config</h3>
-                    <pre><code>class Config:
-    def __init__(self):
-        self.server = ServerConfig()
-        self.security = SecurityConfig()
-        self.database = DatabaseConfig()</code></pre>
+# Run with gunicorn
+gunicorn -w 4 -k uvicorn.workers.UvicornWorker app:app</code></pre>
+                </div>
 
-                    <h3>ServerConfig</h3>
-                    <pre><code>class ServerConfig:
-    def __init__(self):
-        self.host: str = "localhost"
-        self.port: int = 8000
-        self.debug: bool = False
-        self.workers: int = 1
-        self.reload: bool = False</code></pre>
-
-                    <h3>SecurityConfig</h3>
-                    <pre><code>class SecurityConfig:
-    def __init__(self):
-        self.secret_key: str = None
-        self.csrf_protection: bool = True
-        self.secure_headers: bool = True
-        self.allowed_hosts: List[str] = []
-        self.max_request_size: int = 16 * 1024 * 1024  # 16MB</code></pre>
-
-                    <div class="alert alert-info">
-                        <strong>💡 Type Hints:</strong> AbriPy is built with full type hint support. Use a modern IDE like VS Code or PyCharm for the best development experience with auto-completion and type checking.
-                    </div>
-                </section>
-
-                <!-- Deployment -->
-                <section id="deployment">
-                    <h1>🚀 Deployment Guide</h1>
-
-                    <h2>🐳 Docker Deployment</h2>
-                    <pre><code># Dockerfile
+                <h3>Docker Deployment</h3>
+                <div class="code-block">
+                    <pre><code class="language-dockerfile"># Dockerfile
 FROM python:3.11-slim
 
 WORKDIR /app
 
-# Install system dependencies
-RUN apt-get update && apt-get install -y \
-    gcc \
-    && rm -rf /var/lib/apt/lists/*
-
-# Copy requirements first for better caching
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy application code
 COPY . .
 
-# Create non-root user
-RUN useradd --create-home --shell /bin/bash abripy
-USER abripy
-
-# Expose port
 EXPOSE 8000
 
-# Health check
-HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:8000/health || exit 1
+CMD ["gunicorn", "-w", "4", "-k", "uvicorn.workers.UvicornWorker", 
+     "--host", "0.0.0.0", "--port", "8000", "app:app"]</code></pre>
+                </div>
 
-# Run application
-CMD ["python", "-m", "uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]</code></pre>
+                <div class="code-block">
+                    <pre><code class="language-bash"># Build and run
+docker build -t abripy-app .
+docker run -p 8000:8000 abripy-app</code></pre>
+                </div>
 
-                    <h3>Docker Compose</h3>
-                    <pre><code># docker-compose.yml
-version: '3.8'
+                <h3>Environment Configuration</h3>
+                <div class="code-block">
+                    <pre><code class="language-bash"># .env file
+HOST=0.0.0.0
+PORT=8000
+DEBUG=false
+SECRET_KEY=your-production-secret-key
+DATABASE_URL=postgresql://user:pass@localhost/prod_db</code></pre>
+                </div>
+            </section>
 
-services:
-  app:
-    build: .
-    ports:
-      - "8000:8000"
-    environment:
-      - ENVIRONMENT=production
-      - DATABASE_URL=postgresql://user:password@db:5432/abripy_db
-      - REDIS_URL=redis://redis:6379
-    depends_on:
-      - db
-      - redis
-    volumes:
-      - ./logs:/app/logs
-    restart: unless-stopped
+            <section id="troubleshooting" class="section">
+                <h2>Troubleshooting</h2>
+                
+                <h3>Common Issues</h3>
+                
+                <h4>Route Handler Error: "takes 0 positional arguments but 1 was given"</h4>
+                <div class="warning-box">
+                    <strong>Problem:</strong> Route handlers not accepting the request parameter.
+                </div>
+                
+                <div class="code-block">
+                    <pre><code class="language-python"># ❌ Incorrect - Missing request parameter
+@app.get('/')
+async def hello():
+    return "Hello!"
 
-  db:
-    image: postgres:15
-    environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: abripy_db
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    restart: unless-stopped
+# ✅ Correct - Include request parameter
+@app.get('/')
+async def hello(request):
+    return "Hello!"</code></pre>
+                </div>
 
-  redis:
-    image: redis:7-alpine
-    restart: unless-stopped
+                <h4>Import Errors</h4>
+                <div class="warning-box">
+                    <strong>Problem:</strong> Module import issues.
+                </div>
+                
+                <div class="code-block">
+                    <pre><code class="language-python"># Make sure your imports are correct
+from core.application import AbriPy  # Not from abripy.application
+from web.response import Response    # Not from abripy.response
+from core.config import Config       # Not from abripy.config</code></pre>
+                </div>
 
-  nginx:
-    image: nginx:alpine
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
-      - ./ssl:/etc/nginx/ssl
-    depends_on:
-      - app
-    restart: unless-stopped
+                <h4>WebSocket Connection Issues</h4>
+                <div class="info-box">
+                    <strong>Tip:</strong> Ensure your WebSocket routes are properly configured and the client is connecting to the correct URL.
+                </div>
 
-volumes:
-  postgres_data:</code></pre>
+                <h4>Middleware Order</h4>
+                <div class="info-box">
+                    <strong>Tip:</strong> Middleware is executed in the order it's added. Authentication middleware should typically be added before route-specific middleware.
+                </div>
 
-                    <h2>☁️ Cloud Platform Deployment</h2>
+                <h3>Debug Mode</h3>
+                <div class="code-block">
+                    <pre><code class="language-python"># Enable debug mode for detailed error messages
+app.run(debug=True)
 
-                    <h3>Heroku</h3>
-                    <pre><code># Procfile
-web: python -m uvicorn app:app --host 0.0.0.0 --port $PORT
+# Or set in configuration
+config = Config()
+config.server.debug = True
+app = AbriPy(config=config)</code></pre>
+                </div>
 
-# runtime.txt
-python-3.11.4
-
-# heroku.yml (for container deployments)
-build:
-  docker:
-    web: Dockerfile
-run:
-  web: python -m uvicorn app:app --host 0.0.0.0 --port $PORT</code></pre>
-
-                    <h3>AWS Lambda (Serverless)</h3>
-                    <pre><code># lambda_handler.py
-import asyncio
-from mangum import Mangum
-from app import app
-
-# Create Lambda handler
-handler = Mangum(app, lifespan="off")
-
-# For async applications
-def lambda_handler(event, context):
-    return asyncio.run(handler(event, context))</code></pre>
-
-                    <h3>Google Cloud Run</h3>
-                    <pre><code># cloudbuild.yaml
-steps:
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/$PROJECT_ID/abripy-app', '.']
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/$PROJECT_ID/abripy-app']
-  - name: 'gcr.io/cloud-builders/gcloud'
-    args: 
-      - 'run'
-      - 'deploy'
-      - 'abripy-app'
-      - '--image'
-      - 'gcr.io/$PROJECT_ID/abripy-app'
-      - '--platform'
-      - 'managed'
-      - '--region'
-      - 'us-central1'
-      - '--allow-unauthenticated'</code></pre>
-
-                    <h2>🔧 Production Configuration</h2>
-                    <pre><code># production.py
-import os
-from core import Config, SecurityConfig, ServerConfig
-
-class ProductionConfig(Config):
-    def __init__(self):
-        super().__init__()
-        
-        # Server settings
-        self.server = ServerConfig(
-            host="0.0.0.0",
-            port=int(os.getenv("PORT", 8000)),
-            debug=False,
-            workers=int(os.getenv("WORKERS", 4))
-        )
-        
-        # Security settings
-        self.security = SecurityConfig(
-            secret_key=os.getenv("SECRET_KEY"),
-            csrf_protection=True,
-            secure_headers=True,
-            allowed_hosts=os.getenv("ALLOWED_HOSTS", "").split(","),
-            max_request_size=10 * 1024 * 1024  # 10MB
-        )
-        
-        # Database settings
-        self.database.url = os.getenv("DATABASE_URL")
-        self.database.pool_size = int(os.getenv("DB_POOL_SIZE", 20))
-        
-        # Additional production settings
-        self.logging_level = "INFO"
-        self.enable_metrics = True
-        self.enable_tracing = True</code></pre>
-
-                    <h2>🌐 Reverse Proxy (Nginx)</h2>
-                    <pre><code># nginx.conf
-events {
-    worker_connections 1024;
-}
-
-http {
-    upstream abripy_app {
-        server app:8000;
-    }
-
-    # Rate limiting
-    limit_req_zone $binary_remote_addr zone=api:10m rate=10r/s;
-
-    server {
-        listen 80;
-        server_name yourdomain.com www.yourdomain.com;
-        
-        # Redirect HTTP to HTTPS
-        return 301 https://$host$request_uri;
-    }
-
-    server {
-        listen 443 ssl http2;
-        server_name yourdomain.com www.yourdomain.com;
-
-        # SSL configuration
-        ssl_certificate /etc/nginx/ssl/cert.pem;
-        ssl_certificate_key /etc/nginx/ssl/key.pem;
-        ssl_session_timeout 1d;
-        ssl_session_cache shared:SSL:50m;
-        ssl_stapling on;
-        ssl_stapling_verify on;
-
-        # Security headers
-        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
-        add_header X-Frame-Options DENY always;
-        add_header X-Content-Type-Options nosniff always;
-
-        # Static files
-        location /static/ {
-            alias /app/static/;
-            expires 1y;
-            add_header Cache-Control "public, immutable";
-        }
-
-        # API routes with rate limiting
-        location /api/ {
-            limit_req zone=api burst=20 nodelay;
-            proxy_pass http://abripy_app;
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header X-Forwarded-Proto $scheme;
-        }
-
-        # WebSocket support
-        location /ws/ {
-            proxy_pass http://abripy_app;
-            proxy_http_version 1.1;
-            proxy_set_header Upgrade $http_upgrade;
-            proxy_set_header Connection "upgrade";
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-        }
-
-        # All other routes
-        location / {
-            proxy_pass http://abripy_app;
-            proxy_set_header Host $host;
-            proxy_set_header X-Real-IP $remote_addr;
-            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header X-Forwarded-Proto $scheme;
-        }
-    }
-}</code></pre>
-
-                    <h2>📊 Monitoring & Logging</h2>
-                    <pre><code># monitoring.py
-import logging
-import time
-from datetime import datetime
+                <h3>Logging</h3>
+                <div class="code-block">
+                    <pre><code class="language-python">import logging
 
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('app.log'),
-        logging.StreamHandler()
-    ]
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 
 logger = logging.getLogger(__name__)
 
-class MonitoringMiddleware:
-    async def __call__(self, request, call_next):
-        start_time = time.time()
-        
-        # Log request
-        logger.info(f"Request: {request.method} {request.url} from {request.client.host}")
-        
-        try:
-            response = await call_next(request)
-            
-            # Log response
-            duration = time.time() - start_time
-            logger.info(f"Response: {response.status_code} in {duration:.4f}s")
-            
-            # Add monitoring headers
-            response.headers["X-Response-Time"] = str(duration)
-            response.headers["X-Request-ID"] = str(hash(f"{start_time}{request.url}"))
-            
-            return response
-            
-        except Exception as e:
-            duration = time.time() - start_time
-            logger.error(f"Error: {str(e)} after {duration:.4f}s")
-            raise
-
-# Health check endpoint
-@app.get('/health')
-async def health_check():
-    return {
-        "status": "healthy",
-        "timestamp": datetime.now().isoformat(),
-        "version": "1.0.0"
-    }
-
-# Metrics endpoint
-@app.get('/metrics')
-async def metrics():
-    # Return Prometheus-compatible metrics
-    return Response(
-        content="""
-# HELP requests_total Total number of requests
-# TYPE requests_total counter
-requests_total 1000
-
-# HELP response_time_seconds Response time in seconds
-# TYPE response_time_seconds histogram
-response_time_seconds_bucket{le="0.1"} 100
-response_time_seconds_bucket{le="0.5"} 800
-response_time_seconds_bucket{le="1.0"} 950
-response_time_seconds_bucket{le="+Inf"} 1000
-        """.strip(),
-        media_type="text/plain"
-    )</code></pre>
-
-                    <div class="alert alert-warning">
-                        <strong>🔒 Production Security:</strong> Always use HTTPS, keep dependencies updated, monitor logs for security events, use environment variables for secrets, and implement proper backup strategies.
-                    </div>
-                </section>
-
-                <!-- Troubleshooting -->
-                <section id="troubleshooting">
-                    <h1>🔧 Troubleshooting Guide</h1>
-
-                    <h2>🚨 Common Issues</h2>
-
-                    <h3>Import Errors</h3>
-                    <div class="alert alert-danger">
-                        <strong>Error:</strong> <code>ImportError: cannot import name 'Route' from 'core.routing'</code>
-                    </div>
-                    <p><strong>Solution:</strong> Make sure your <code>core/routing.py</code> exports <code>Router</code> instead of <code>Route</code>:</p>
-                    <pre><code># core/routing.py - Correct
-class Router:
-    # Router implementation
-    pass
-
-# core/__init__.py - Correct
-from .routing import Router  # Not Route</code></pre>
-
-                    <h3>ASGI Server Issues</h3>
-                    <div class="alert alert-danger">
-                        <strong>Error:</strong> <code>AttributeError: 'AbriPy' object has no attribute '__call__'</code>
-                    </div>
-                    <p><strong>Solution:</strong> Ensure your AbriPy class implements the ASGI interface:</p>
-                    <pre><code>class AbriPy:
-    async def __call__(self, scope, receive, send):
-        """ASGI interface implementation"""
-        if scope['type'] == 'http':
-            await self.handle_http(scope, receive, send)
-        elif scope['type'] == 'websocket':
-            await self.handle_websocket(scope, receive, send)</code></pre>
-
-                    <h3>WebSocket Connection Failures</h3>
-                    <div class="alert alert-danger">
-                        <strong>Error:</strong> WebSocket connections fail or disconnect immediately
-                    </div>
-                    <p><strong>Solutions:</strong></p>
-                    <ul>
-                        <li>Check if your reverse proxy supports WebSocket upgrades</li>
-                        <li>Ensure WebSocket routes are properly registered</li>
-                        <li>Verify CORS settings for WebSocket origins</li>
-                    </ul>
-                    <pre><code># Nginx WebSocket support
-location /ws/ {
-    proxy_pass http://backend;
-    proxy_http_version 1.1;
-    proxy_set_header Upgrade $http_upgrade;
-    proxy_set_header Connection "upgrade";
-}</code></pre>
-
-                    <h2>🐛 Debugging Tips</h2>
-
-                    <h3>Enable Debug Mode</h3>
-                    <pre><code># Development debugging
-app = AbriPy()
-app.config.server.debug = True
-
-# Or via environment
-os.environ["DEBUG"] = "true"</code></pre>
-
-                    <h3>Request/Response Logging</h3>
-                    <pre><code>import logging
-
-# Enable detailed logging
-logging.basicConfig(level=logging.DEBUG)
-
-class DebugMiddleware:
-    async def __call__(self, request, call_next):
-        print(f"🔍 Request: {request.method} {request.url}")
-        print(f"🔍 Headers: {dict(request.headers)}")
-        
-        if request.method in ['POST', 'PUT', 'PATCH']:
-            body = await request.body()
-            print(f"🔍 Body: {body[:200]}...")  # First 200 bytes
-        
-        response = await call_next(request)
-        print(f"🔍 Response: {response.status_code}")
-        
-        return response</code></pre>
-
-                    <h3>Performance Profiling</h3>
-                    <pre><code>import cProfile
-import pstats
-from io import StringIO
-
-class ProfilerMiddleware:
-    async def __call__(self, request, call_next):
-        if request.query_params.get('profile') == 'true':
-            pr = cProfile.Profile()
-            pr.enable()
-            
-            response = await call_next(request)
-            
-            pr.disable()
-            s = StringIO()
-            ps = pstats.Stats(pr, stream=s).sort_stats('cumulative')
-            ps.print_stats()
-            
-            # Log profiling results
-            print("🔍 Profiling Results:")
-            print(s.getvalue())
-            
-            return response
-        else:
-            return await call_next(request)</code></pre>
-
-                    <h2>⚡ Performance Optimization</h2>
-
-                    <h3>Database Connection Pooling</h3>
-                    <pre><code># Example with SQLAlchemy
-from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
-from sqlalchemy.orm import sessionmaker
-
-engine = create_async_engine(
-    "postgresql+asyncpg://user:pass@localhost/db",
-    pool_size=20,
-    max_overflow=30,
-    pool_pre_ping=True
-)
-
-AsyncSessionLocal = sessionmaker(
-    engine, class_=AsyncSession, expire_on_commit=False
-)
-
-async def get_db():
-    async with AsyncSessionLocal() as session:
-        yield session</code></pre>
-
-                    <h3>Caching Strategies</h3>
-                    <pre><code>import redis
-import json
-from functools import wraps
-
-# Redis cache
-redis_client = redis.Redis(host='localhost', port=6379, db=0)
-
-def cache_result(expiry=300):  # 5 minutes default
-    def decorator(func):
-        @wraps(func)
-        async def wrapper(*args, **kwargs):
-            # Create cache key
-            cache_key = f"{func.__name__}:{hash(str(args) + str(kwargs))}"
-            
-            # Try to get from cache
-            cached = redis_client.get(cache_key)
-            if cached:
-                return json.loads(cached)
-            
-            # Execute function and cache result
-            result = await func(*args, **kwargs)
-            redis_client.setex(cache_key, expiry, json.dumps(result))
-            
-            return result
-        return wrapper
-    return decorator
-
-# Usage
-@app.get('/api/expensive-operation')
-@cache_result(expiry=600)  # 10 minutes
-async def expensive_operation():
-    # Expensive computation here
-    await asyncio.sleep(2)  # Simulate slow operation
-    return {"result": "computed value"}</code></pre>
-
-                    <h3>Background Tasks</h3>
-                    <pre><code>import asyncio
-from typing import List
-import aiofiles
-
-class TaskManager:
-    def __init__(self):
-        self.tasks: List[asyncio.Task] = []
-    
-    def add_task(self, coro):
-        task = asyncio.create_task(coro)
-        self.tasks.append(task)
-        return task
-    
-    async def wait_all(self):
-        if self.tasks:
-            await asyncio.gather(*self.tasks, return_exceptions=True)
-
-# Background email sending
-async def send_email_async(to_email: str, subject: str, body: str):
-    # Simulate email sending
-    await asyncio.sleep(1)
-    print(f"📧 Email sent to {to_email}: {subject}")
-
-@app.post('/api/send-newsletter')
-async def send_newsletter(request):
-    data = await request.json()
-    recipients = data['recipients']
-    
-    task_manager = TaskManager()
-    
-    # Queue all email tasks
-    for recipient in recipients:
-        task_manager.add_task(
-            send_email_async(
-                recipient['email'],
-                "Newsletter",
-                "Your newsletter content"
-            )
-        )
-    
-    # Don't wait for completion, return immediately
-    asyncio.create_task(task_manager.wait_all())
-    
-    return {
-        "message": f"Newsletter queued for {len(recipients)} recipients",
-        "status": "processing"
-    }</code></pre>
-
-                    <h2>🛠️ Development Tools</h2>
-
-                    <h3>Auto-reload Setup</h3>
-                    <pre><code># development.py
-import os
-from watchfiles import watch
-
-async def auto_reload_server():
-    """Watch for file changes and reload server"""
-    async for changes in watch('./'):
-        if any(path.endswith('.py') for _, path in changes):
-            print("🔄 Code changes detected, reloading...")
-            os.execv(sys.executable, ['python'] + sys.argv)
-
-# Start auto-reload in development
-if app.config.server.debug:
-    asyncio.create_task(auto_reload_server())</code></pre>
-
-                    <h3>API Testing</h3>
-                    <pre><code># test_api.py
-import pytest
-import asyncio
-from httpx import AsyncClient
-from app import app
-
-@pytest.fixture
-async def client():
-    async with AsyncClient(app=app, base_url="http://test") as ac:
-        yield ac
-
-@pytest.mark.asyncio
-async def test_health_endpoint(client):
-    response = await client.get("/health")
-    assert response.status_code == 200
-    assert response.json()["status"] == "healthy"
-
-@pytest.mark.asyncio
-async def test_create_user(client):
-    user_data = {
-        "username": "testuser",
-        "email": "test@example.com"
-    }
-    response = await client.post("/api/users", json=user_data)
-    assert response.status_code == 201
-    assert response.json()["username"] == "testuser"</code></pre>
-
-                    <div class="alert alert-info">
-                        <strong>💡 Getting Help:</strong> If you encounter issues not covered here, check the GitHub issues, join our Discord community, or create a detailed bug report with code examples.
-                    </div>
-                </section>
-
-                <!-- Footer -->
-                <div style="margin-top: 4rem; padding: 2rem 0; border-top: 1px solid var(--border-color); text-align: center;">
-                    <p><strong>🚀 Ready to build amazing web applications with AbriPy?</strong></p>
-                    <p>Visit our <a href="https://github.com/yourusername/abripy" target="_blank">GitHub repository</a> for the latest updates and to contribute!</p>
-                    
-                    <div style="margin-top: 2rem;">
-                        <a href="#introduction" class="btn">📖 Read Again</a>
-                        <a href="https://github.com/yourusername/abripy" class="btn btn-secondary" target="_blank">⭐ Star on GitHub</a>
-                    </div>
+@app.get('/api/data')
+async def get_data(request):
+    logger.info("Data requested")
+    try:
+        # Your logic here
+        return {"data": "example"}
+    except Exception as e:
+        logger.error(f"Error in get_data: {e}")
+        raise</code></pre>
                 </div>
-            </main>
-        </div>
+            </section>
+        </main>
     </div>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 AbriPy Framework. Built with ❤️ for Python developers.</p>
+            <p>&copy; 2025 AbriPy Framework. Built with ❤️ for developers.</p>
             <p>
-                <a href="https://github.com/yourusername/abripy" target="_blank" style="color: white; text-decoration: none;">GitHub</a> |
-                <a href="https://discord.gg/abripy" target="_blank" style="color: white; text-decoration: none;">Discord</a> |
-                <a href="https://twitter.com/abripy" target="_blank" style="color: white; text-decoration: none;">Twitter</a> |
-                <a href="mailto:support@abripy.dev" style="color: white; text-decoration: none;">Contact</a>
+                <a href="https://github.com/yourusername/abripy" style="color: white; text-decoration: none;">GitHub</a> |
+                <a href="https://pypi.org/project/abripy" style="color: white; text-decoration: none;">PyPI</a> |
+                <a href="#" style="color: white; text-decoration: none;">Documentation</a>
             </p>
         </div>
     </footer>
 
-    <!-- Scroll to top button -->
-    <div class="scroll-top" id="scrollTop">
-        ↑
-    </div>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Scroll to top functionality
-        const scrollTop = document.getElementById('scrollTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollTop.classList.add('visible');
-            } else {
-                scrollTop.classList.remove('visible');
-            }
-        });
-
-        scrollTop.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-
-        // Active navigation highlighting
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.sidebar a');
-
-        function updateActiveNav() {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
+        // Navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+            
+            // Smooth scrolling
             navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', updateActiveNav);
-
-        // Copy code functionality
-        document.querySelectorAll('pre code').forEach(block => {
-            const button = document.createElement('button');
-            button.textContent = 'Copy';
-            button.style.cssText = `
-                position: absolute;
-                top: 8px;
-                right: 8px;
-                background: var(--primary-color);
-                color: white;
-                border: none;
-                padding: 4px 8px;
-                border-radius: 4px;
-                font-size: 12px;
-                cursor: pointer;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-            `;
-            
-            const pre = block.parentElement;
-            pre.style.position = 'relative';
-            pre.appendChild(button);
-            
-            pre.addEventListener('mouseenter', () => {
-                button.style.opacity = '1';
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetSection = document.getElementById(targetId);
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        
+                        // Update active link
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                    }
+                });
             });
             
-            pre.addEventListener('mouseleave', () => {
-                button.style.opacity = '0';
-            });
-            
-            button.addEventListener('click', () => {
-                navigator.clipboard.writeText(block.textContent).then(() => {
-                    button.textContent = 'Copied!';
-                    setTimeout(() => {
-                        button.textContent = 'Copy';
-                    }, 2000);
+            // Highlight current section on scroll
+            window.addEventListener('scroll', function() {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
                 });
             });
         });
-
-        // Search functionality (simple implementation)
-        function addSearchBox() {
-            const searchHTML = `
-                <div style="margin-bottom: 2rem;">
-                    <input type="text" id="searchBox" placeholder="🔍 Search documentation..." 
-                           style="width: 100%; padding: 12px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 16px;">
+        
+        // Tab functionality
+        function showTab(tabId) {
+            // Hide all tab panes
+            document.querySelectorAll('.tab-pane').forEach(pane => {
+                pane.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected tab pane
+            document.getElementById(tabId).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+        
+        // Copy code functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const codeBlocks = document.querySelectorAll('.code-block pre code');
+            
+            codeBlocks.forEach(block => {
+                const button = document.createElement('button');
+                button.className = 'copy-button';
+                button.textContent = 'Copy';
+                button.style.cssText = `
+                    position: absolute;
+                    top: 8px;
+                    right: 8px;
+                    background: #667eea;
+                    color: white;
+                    border: none;
+                    padding: 4px 8px;
+                    border-radius: 4px;
+                    font-size: 12px;
+                    cursor: pointer;
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                `;
+                
+                const container = block.closest('.code-block');
+                container.style.position = 'relative';
+                container.appendChild(button);
+                
+                container.addEventListener('mouseenter', () => {
+                    button.style.opacity = '1';
+                });
+                
+                container.addEventListener('mouseleave', () => {
+                    button.style.opacity = '0';
+                });
+                
+                button.addEventListener('click', () => {
+                    const text = block.textContent;
+                    navigator.clipboard.writeText(text).then(() => {
+                        button.textContent = 'Copied!';
+                        setTimeout(() => {
+                            button.textContent = 'Copy';
+                        }, 2000);
+                    });
+                });
+            });
+        });
+        
+        // Search functionality
+        function addSearchFeature() {
+            const searchContainer = document.createElement('div');
+            searchContainer.innerHTML = `
+                <div style="margin-bottom: 1rem;">
+                    <input type="text" id="search-input" placeholder="Search documentation..." 
+                           style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
                 </div>
             `;
             
             const sidebar = document.querySelector('.sidebar');
-            sidebar.insertAdjacentHTML('afterbegin', searchHTML);
+            sidebar.insertBefore(searchContainer, sidebar.firstChild);
             
-            const searchBox = document.getElementById('searchBox');
-            const sections = document.querySelectorAll('.content section');
+            const searchInput = document.getElementById('search-input');
+            const sections = document.querySelectorAll('.section');
             
-            searchBox.addEventListener('input', (e) => {
-                const searchTerm = e.target.value.toLowerCase();
+            searchInput.addEventListener('input', function() {
+                const query = this.value.toLowerCase();
                 
                 sections.forEach(section => {
-                    const text = section.textContent.toLowerCase();
-                    const heading = section.querySelector('h1, h2, h3');
-                    
-                    if (text.includes(searchTerm) || searchTerm === '') {
-                        section.style.display = 'block';
-                    } else {
-                        section.style.display = 'none';
-                    }
+                    const content = section.textContent.toLowerCase();
+                    const isVisible = content.includes(query) || query === '';
+                    section.style.display = isVisible ? 'block' : 'none';
                 });
             });
         }
         
-        // Add search box when page loads
-        document.addEventListener('DOMContentLoaded', addSearchBox);
-
-        // Print styles
-        const printStyles = `
-            @media print {
-                .nav, .sidebar, .scroll-top, .footer { display: none !important; }
-                .main { grid-template-columns: 1fr !important; }
-                .content { box-shadow: none !important; }
-                pre { page-break-inside: avoid; }
-                h1, h2, h3 { page-break-after: avoid; }
-            }
-        `;
+        // Initialize search
+        document.addEventListener('DOMContentLoaded', addSearchFeature);
         
-        const style = document.createElement('style');
-        style.textContent = printStyles;
-        document.head.appendChild(style);
+        // Print styles
+        window.addEventListener('beforeprint', function() {
+            document.querySelectorAll('.sidebar').forEach(el => {
+                el.style.display = 'none';
+            });
+        });
+        
+        window.addEventListener('afterprint', function() {
+            document.querySelectorAll('.sidebar').forEach(el => {
+                el.style.display = 'block';
+            });
+        });
     </script>
 </body>
 </html>
