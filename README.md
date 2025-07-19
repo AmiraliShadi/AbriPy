@@ -16,43 +16,7 @@
 🔧 **Middleware Support* - Extensible request/response processing  
 📊 *Type Hints** - Full TypeScript-like type safety  
 
-## 🚀 Quick Start
-
-## Installation
-
-```bash
-pip install abripy
-# Or for development
-git clone https://github.com/AmiraliShadi/AbriPy.git
-cd abripy
-pip install -e .
-
-### Your First App
-
-python
-from core import AbriPy
-
-app = AbriPy()
-
-@app.get('/')
-async def hello():
-return "Hello, AbriPy! 🚀"
-
-app.post('/api/data')
-async def handle_data(request):
-data = await request.json()
-return {"message": f"Received: {data}"}
-
-if __name__ == "__main__":
-app.run(debug=True)
-
-**Run it:**
-bash
-python app.py
-
-Visit `http://localhost:8000` and see your app in action! 🎉
-
-##🏗️ Architecture
+## 🏗️ Architecture
 
 
 AriPy Framework
