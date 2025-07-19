@@ -382,26 +382,31 @@ pip install -e .</code></pre>
                 
                 <div class="code-block">
                     <pre><code class="language-python"># app.py
+# app.py
 from core.application import AbriPy
+from core.config import Config
+from web.response import Response
 
+# Create AbriPy application
 app = AbriPy()
 
 @app.get('/')
-async def hello(request):
+async def hello(request):  # Add request parameter
     return "Hello, AbriPy! 🚀"
 
-@app.get('/api/users/{user_id}')
-async def get_user(request):
-    user_id = request.path_params['user_id']
-    return {"user_id": user_id, "name": "John Doe"}
+@app.get('/api/status')
+async def status(request):  # Add request parameter
+    return {"status": "healthy", "framework": "AbriPy"}
 
-@app.post('/api/users')
-async def create_user(request):
+@app.post('/api/echo')
+async def echo(request):  # This one already has it
     data = await request.json()
-    return {"message": "User created", "data": data}
+    return {"echo": data}
 
 if __name__ == "__main__":
-    app.run(host="127.0.0.1", port=8000, debug=True)</code></pre>
+    print("start...")
+    app.run(host="127.0.0.1", port=8000, debug=True)
+</code></pre>
                 </div>
 
                 <h3>Run Your Application</h3>
@@ -1231,7 +1236,7 @@ async def chat_page(request):
         </div>
         
         <script>
-            const username = prompt("Enter your username:");
+            const username = 'user';
             if (!username) location.reload();
             
             const ws = new WebSocket(`ws://localhost:8000/chat/${username}`);
