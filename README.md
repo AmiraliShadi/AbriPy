@@ -60,8 +60,8 @@ AriPy Framework
 
 ## 🤝 Community
 
-- 💬 [Discd Server](https://t.me/Amiralisahdii)
-- 📧 Mailing List](mailto:ashadi8448@gmail.com)
+- 💬 [Telegram](https://t.me/Amiralisahdii)
+- 📧 [Mailing List](mailto:ashadi8448@gmail.com)
 
 ## 📄 License
 
