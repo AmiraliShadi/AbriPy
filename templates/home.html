@@ -1,0 +1,22 @@
+<!-- templates/home.html -->
+<h1>Welcome to {{ title }}!</h1>
+
+<p>A modern, secure Python web framework built for speed and developer happiness.</p>
+
+<h2>Features:</h2>
+<ul>
+{% for feature in features %}
+    <li>{{ feature }}</li>
+{% endfor %}
+</ul>
+
+<h2>Quick Start</h2>
+<pre><code>
+from AbriPy import AbriPy, json_response
+
+app = AbriPy()
+
+@app.get('/hello')
+async def hello(request):
+    return json_response({'message': 'Hello, AbriPy!'})
+</code></pre>

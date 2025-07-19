@@ -1,0 +1,35 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title or 'AbriPy App' }}</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .header { border-bottom: 1px solid #ddd; padding-bottom: 20px; margin-bottom: 20px; }
+        .nav { list-style: none; padding: 0; display: flex; gap: 20px; }
+        .nav li { display: inline; }
+        .nav a { text-decoration: none; color: #007bff; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>{{ title or 'AbriPy' }}</h1>
+            <nav>
+                <ul class="nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/api/health">API</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            {{ content }}
+        </main>
+    </div>
+</body>
+</html>
